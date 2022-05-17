@@ -1,0 +1,111 @@
+<!-- <app-header></app-header> -->
+<div class="selector">
+  <div class="container">
+    <div class="row login-card justify-content-center">
+      <div class="mylogo col-6">
+        <!-- <img id="mylogo" src="../../../assets/images/.png" alt=""> -->
+      </div>
+    </div>
+    <div class="row justify-content-center login-card">
+      <div class="card">
+        <div class="header-content">
+          <h1 class="heading">S'identifier</h1>
+          <p class="sub-heading">
+            Restez à l'écoute de votre monde proffessionel
+          </p>
+        </div>
+        <div class="card-body">
+          <form
+            class="example-form"
+            name="form"
+            #loginform="ngForm"
+            (ngSubmit)="f.form.valid && login(loginform)"
+            #f="ngForm"
+            novalidate
+          >
+            <mat-form-field class="form-input" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input
+                type="email"
+                name="username"
+                [(ngModel)]="model.nomUtilisateur"
+                #username="ngModel"
+                required
+                matInput
+                placeholder="Ex. pat@example.com"
+              />
+              <mat-error
+                *ngIf="f.submitted && !username.valid"
+                style="color: red"
+                >L'Email est <strong>obligatoire</strong></mat-error
+              > </mat-form-field
+            ><br />
+            <mat-form-field class="form-input" appearance="fill">
+              <mat-label>Mot de passe</mat-label>
+              <input
+                matInput
+                type="password"
+                name="password"
+                [(ngModel)]="model.motDePasse"
+                #password="ngModel"
+                required
+                placeholder="Password"
+                autocomplete="on"
+              />
+              <mat-error
+                *ngIf="f.submitted && !password.valid"
+                style="color: red"
+                >Le mot de passe est <strong>obligatoire</strong></mat-error
+              >
+            </mat-form-field>
+            <br />
+
+            <a
+              class="forgot-password"
+              data-cie-control-urn="forgot-password-btn"
+              >Mot de passe oublié ?</a
+            ><br />
+            <div
+              *ngIf="loginerror && dangerBox"
+              class="alert alert-danger"
+              role="alert"
+            >
+              <small class="text-danger">{{ loginmsg }}</small>
+              <button
+                style="color: #ff0b00; background-color: transparent"
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="dangerBox = false"
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+            <div>
+              <button
+                [disabled]="!loginform.valid"
+                class="sign-in-btn btn btn-primary"
+                type="submit"
+              >
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                ></span>
+                <span *ngIf="!loading"> Se connecter</span>
+              </button>
+            </div>
+          </form>
+          <div class="join-now">
+            Nouveau sur Social Network?
+            <a href="\signup" class="join-now-btn"
+              ><b>Rejoindre maintenant</b></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <app-wall></app-wall> -->
+<!-- <app-footer></app-footer> -->

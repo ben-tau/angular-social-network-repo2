@@ -1,0 +1,143 @@
+<app-header></app-header>
+
+<main class="pt-4">
+  <div class="row">
+
+    <div app-navbar class="col-1 sideNavBar pt-4"></div>
+
+
+      <div class="col-8 ps-4">
+        <app-create-post [userDetails]="userDetails"></app-create-post>
+        <app-wall-posts [userDetails]="userDetails"></app-wall-posts>
+      </div>
+
+      <div class="col-3 circleCont d-flex flex-column">
+        <app-aside [userDetails]="userDetails"></app-aside>
+      </div>
+
+  </div>
+</main>
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+<!-- <app-navbar></app-navbar>
+
+<div class="container" id="feedcards">
+  <div class="card-group col-xs-12">
+    <div class="col-sm-4">
+      <div class="card" id="profileCard">
+        <div style="text-align: center">
+          <div *ngIf="user.photoProfile">
+            <img
+              [src]="displayProfilePhoto()"
+              id="profile-image"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div *ngIf="!user.photoProfile">
+            <img
+              src="../../../assets/images/logo2.png"
+              id="profile-image"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+        </div>
+        <div class="card-body" style="text-align: center">
+          <h5 class="card-title" style="font-size: 20px">
+            <b>{{ user.name }} {{ user.surname }}</b>
+          </h5>
+          <div *ngIf="user.currentJob && user.currentCompany">
+            <p class="card-text">
+              {{ user.currentJob }} at {{ user.currentCompany }}
+            </p>
+          </div>
+          <hr style="height: 1px; color: #8f9299" />
+          <p style="text-align: left; padding-left: 15px">
+            <b>Connections: </b> {{ network.length }}
+          </p>
+          <hr style="height: 1px; color: #8f9299" />
+          <button
+            *ngIf="userDetails"
+            type="button"
+            class="btn profile-btn"
+            (click)="goToProfile()"
+          >
+            Voir mon profile
+          </button>
+        </div>
+      </div>
+
+      <div class="card" id="networkCard" style="margin-bottom: 20%">
+        <div style="text-align: center; margin-bottom: 10px">
+          <h2 style="padding-top: 10%">Mon réseau</h2>
+        </div>
+        <div class="card-body" style="text-align: center; padding-bottom: 10px">
+          <div *ngIf="network.length == 0" style="padding-bottom: 20px">
+            Pas de connection encore..
+          </div>
+          <div *ngIf="network.length != 0">
+            <div *ngFor="let nuser of network">
+              <hr style="height: 1px; color: #8f9299" />
+              <div *ngIf="nuser.photoProfile">
+                <img
+                  [src]="displayUserPhoto(nuser)"
+                  class="rounded-circle"
+                  style="margin-left: -15px; width: 60px"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div *ngIf="!nuser.photoProfile">
+                <img
+                  src="../../../assets/images/logo2.png"
+                  class="rounded-circle"
+                  style="margin-left: -15px; width: 60px"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+               <button
+                [routerLink]="['/users/', nuser.id]"
+                type="button"
+                class="btn"
+              >
+                {{ nuser.name }} {{ nuser.surname }} <br />
+                <div *ngIf="nuser.currentJob && nuser.currentCompany">
+                  <small style="color: rgb(158, 157, 157)"
+                    >{{ nuser.currentJob }} at {{ nuser.currentCompany }}</small
+                  >
+                </div>
+              </button>
+            </div>
+          </div>
+          <hr style="height: 1px; color: #8f9299" />
+          <a href="\network" class="btn profile-btn">Voir mon réseau</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card" id="addPost">
+         <app-create-post
+          (updateView)="recieveRefreshCommand($event)"
+        ></app-create-post>
+      </div>
+      <br />
+      <hr style="height: 1px; color: #8f9299" />
+      <br />
+      <div id="allPosts">
+        <app-wall-publications></app-wall-publications>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer> -->

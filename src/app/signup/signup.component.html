@@ -1,0 +1,141 @@
+<div class="selector">
+  <div class="container">
+    <div class="row login-card d-flex justify-content-center text-center my-5">
+      <div class="mylogo">
+        <img
+          id="mylogo"
+          src="../../assets/images/logo.jpg"
+          alt=""
+          style="max-width: 150px"
+        />
+      </div>
+    </div>
+    <div class="row justify-content-center login-card">
+      <div class="card" style="width: 28rem">
+        <div class="header-content">
+          <h1 class="heading">Inscription</h1>
+          <p class="sub-heading">Créez votre monde professionnel</p>
+        </div>
+        <div class="card-body">
+          <form
+            class="example-form"
+            name="form"
+            #signupForm="ngForm"
+            (ngSubmit)="signup(signupForm)"
+          >
+            <mat-form-field class="form-input" appearance="fill">
+              <mat-label>Nom d'utilisateur</mat-label>
+              <input
+                matInput
+                type="username"
+                name="username"
+                id="username"
+                placeholder="Ex. dupont1980"
+                [(ngModel)]="user.nomUtilisateur"
+                #username="ngModel"
+                required
+                [class.is-invalid]="username.invalid && submitattempt"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field class="form-input" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Ex. dupont@exemple.fr"
+                [(ngModel)]="user.email"
+                #username="ngModel"
+                required
+                [class.is-invalid]="username.invalid && submitattempt"
+              /> </mat-form-field
+            ><br />
+
+            <mat-form-field class="form-input" appearance="fill">
+              <mat-label>Mot de passe</mat-label>
+              <input
+                matInput
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Mot de passe"
+                [(ngModel)]="user.motDePasse"
+                #password="ngModel"
+                [class.is-invalid]="password.invalid && submitattempt"
+                autocomplete="on"
+                required
+              />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="form-input" appearance="fill">
+              <mat-label>Confirmer mot de passe</mat-label>
+              <input
+                matInput
+                type="password"
+                name="passwordConfirm"
+                id="passwordConfirm"
+                placeholder="Répeter mot de passe"
+                [(ngModel)]="user.motDePasseConf"
+                #passwordConfirm="ngModel"
+                required
+              /> </mat-form-field
+            ><br />
+
+            <div
+              *ngIf="signuperror && dangerBox"
+              class="alert alert-danger"
+              role="alert"
+              style="margin-top: 10px; margin-bottom: 5px"
+            >
+              <small class="text-danger">{{ signuperror.error.message }}</small>
+              <button
+                style="color: #ff0b00; background-color: transparent"
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="dangerBox = false"
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+            <div
+              *ngIf="
+                submitattempt &&
+                (user.motDePasseConf || user.motDePasse) &&
+                user.motDePasse !== user.motDePasseConf
+              "
+              class="alert alert-danger"
+              role="alert"
+              style="margin-top: 10px; margin-bottom: 5px"
+            >
+              <small class="text-danger"
+                >Les mots de passe sont differents</small
+              >
+            </div>
+            <br />
+            <button
+              class="sign-in-btn btn btn-primary"
+              [disabled]="!signupForm.valid"
+              type="submit"
+            >
+              <span
+                *ngIf="loading"
+                class="spinner-border spinner-border-sm"
+                role="status"
+              ></span>
+              <span *ngIf="!loading"> S'inscrire</span>
+            </button>
+          </form>
+          <div class="join-now">
+            Déjà inscrit ?
+            <a href="\login" class="join-now-btn"><b>S'identifier</b></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

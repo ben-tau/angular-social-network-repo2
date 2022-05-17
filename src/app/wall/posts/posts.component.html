@@ -1,0 +1,172 @@
+<div class="row mb-2">
+  <div class="col-12 d-flex">
+    <select class="form-select selectBtnForPosts" aria-label="Default select example">
+      <option selected>Trier par...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <div class="hr"></div>
+  </div>
+</div>
+<div class="row">
+  <!-- post -->
+  <div class="col-12" *ngFor="let post of posts">
+    <div class="row postCont my-2">
+      <div class="col-2">
+        <div class="d-flex">
+          <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+          <h6 class="ms-3 mt-2">{{post.auteur.nomUtilisateur}}</h6>
+        </div>
+      </div>
+      <div class="col-8"></div>
+      <div class="col-2 text-end pt-2">
+        <span>{{post.datePublication}}</span>
+      </div>
+      <a href="/">
+        <div class="col-12 text-center">
+          <h3>{{post.contenu}}</h3>
+          <img src="../../assets/images/content.jpg" alt="" style="width:100%">
+        </div>
+      </a>
+      <div class="col-12 mt-3">
+        <ul class="sideNavBarUl d-flex justify-content-between">
+          <li>
+            <a href="/">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span> J'aime</span>
+            </a>
+          </li>
+          <li>
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="giveIdForComment(post.id)">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span> Commenter</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span> Partager</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span> Contacter</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 mt-3">
+        <div class="row">
+          <div class="col-2">
+            <button type="button" class="btn btn-outline-primary me-1">
+              <i class="fa fa-thumbs-up"></i>
+              <span class="thumbsCounter"></span>
+            </button>
+            <button type="button" class="btn btn-outline-primary mx-1">
+              <i class="fa fa-heart"></i>
+              <span class="likesCounter">&nbsp;{{post.likes}}</span>
+            </button>
+            <button type="button" class="btn btn-outline-primary mx-1">
+              <i class="fa fa-smile-o"></i>
+            </button>
+          </div>
+          <div class="col-8">
+
+          </div>
+          <div class="col-2 text-end pt-3" (click)="giveIdForComment(post.id)">
+            <a class="text-primary text-decoration-underline" (click)="displayComments()">
+              <span *ngIf="post.commentaires.length < 1"></span>
+              <span *ngIf="post.commentaires.length == 1">{{post.commentaires.length}} commentaire</span>
+              <span *ngIf="post.commentaires.length > 1">{{post.commentaires.length}} commentaires</span>
+            </a>
+          </div>
+          <div class="col-12 mt-4 commentsCont">
+            <app-comments *ngIf="showComments" [comments]="post.commentaires" [publicationId]="tempPublicationId"></app-comments>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of post -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="form">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="" [formGroup]="createCommentForm">
+              <div class="row">
+                <div class="col-3"></div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-2">
+                      <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+                    </div>
+                    <div class="col-10">
+                      <h5 class="text-end">Jean Dupont</h5>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Visibilité du commentaire</option>
+                        <option value="1">Tout le monde</option>
+                        <option value="2">Vos connexions seulement</option>
+                        <option value="3">Au créateur de la publication</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="De quoi voulez-vous parler aujourd'hui ?"
+                      id="floatingTextarea" style="min-height:200px" formControlName="contenu"></textarea>
+                    <label for="floatingTextarea">Publier</label>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <div class="row">
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-film"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-1">
+                      <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="col-4 text-end">
+                      <button #contenu class="btn btn-primary rounded" (click)="addComment()" [disabled]="!createCommentForm.valid" data-bs-dismiss="modal">Publier</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Modal -->
+
+
+</div>

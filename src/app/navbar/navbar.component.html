@@ -1,0 +1,162 @@
+
+
+    <ul class="sideNavBarUl d-flex flex-column justify-content-center text-center">
+      <li class="mt-4">
+          <a href="" class="d-flex flex-column justify-content-center align-items-center">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span>Accueil</span>
+          </a>
+      </li>
+      <li class="mt-4">
+          <a href="" class="d-flex flex-column justify-content-center align-items-center">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span>Emploi</span>
+          </a>
+      </li>
+      <li class="mt-4">
+          <a href="" class="d-flex flex-column justify-content-center align-items-center">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span>Contact</span>
+          </a>
+      </li>
+      <li class="mt-4">
+          <a href="" class="d-flex flex-column justify-content-center align-items-center">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span>Messages</span>
+          </a>
+      </li>
+  </ul>
+
+
+
+
+
+
+
+<!-- <nav
+  class="navbar navbar-expand-lg navbar-light fixed-top"
+  style="position: absolute"
+>
+
+  <div class="container">
+
+    <a href="/feed">
+
+      Jobdot
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active d-flex flex-column text-center"
+            aria-current="page"
+            href="/feed"
+            ><i class="bi bi-house-door"></i
+            ><span class="small">Tableau de bord</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex flex-column text-center"
+            aria-current="page"
+            href="/network"
+            ><i class="bi bi-people"></i
+            ><span class="small">Mon Réseau</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex flex-column text-center"
+            aria-current="page"
+            href="/jobs"
+            ><i class="bi bi-briefcase"></i
+            ><span class="small">Mes offres d'emploi</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex flex-column text-center"
+            aria-current="page"
+            href="/messaging"
+            ><i class="bi bi-chat-dots"></i
+            ><span class="small">Messagerie</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link d-flex flex-column text-center"
+            aria-current="page"
+            href="/notifications"
+            ><i class="bi bi-bell"></i
+            ><span class="small">Notifications</span></a
+          >
+        </li>
+
+
+        <li class="nav-item text-center">
+          <div ngbDropdown class="d-inline-block">
+            <div *ngIf="user.photoProfile">
+              <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+                <img
+                  [src]="displayProfilePhoto()"
+                  class="rounded-circle"
+                  height="40"
+                  alt=""
+                  loading="lazy"
+                />
+              </button>
+            </div>
+            <div *ngIf="!user.photoProfile">
+              <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+                <img
+                  src="../../../assets/images/logo2.png"
+                  class="rounded-circle"
+                  height="40"
+                  alt=""
+                  loading="lazy"
+                />
+              </button>
+            </div>
+
+            <div ngbDropdownMenu id="mydropdown">
+              <button
+                ngbDropdownItem
+                *ngIf="userDetails"
+                type="button"
+                class="btn"
+                (click)="goToProfile()"
+              >
+                Profile
+              </button>
+              <button ngbDropdownItem>
+                <a aria-current="page" [routerLink]="['/settings']" id="set-btn"
+                  >Parametres</a
+                >
+              </button>
+              <button ngbDropdownItem (click)="logout()">Déconnexion</button>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav> -->

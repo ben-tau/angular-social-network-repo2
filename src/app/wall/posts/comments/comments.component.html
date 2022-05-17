@@ -1,0 +1,38 @@
+<!-- comment -->
+<div class="row my-2" *ngFor="let comment of comments">
+  <div class="col-1">
+    <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+  </div>
+  <div class="col-11">
+
+    <div class="d-flex justify-content-between">
+      <h6 class="bold">{{comment.auteur.nomUtilisateur}}</h6>
+      <span class="date">{{comment.datePublication}}</span>
+    </div>
+    <span>Sans emploi</span>
+    <div class="commentCont">
+      {{comment.contenu}}
+    </div>
+  </div>
+</div>
+<div class="row mt-2 justify-content-between">
+  <div class="col-2">
+    <a href="">
+      <span>J'aime</span>
+    </a>
+  </div>
+  <div class="col-2">
+    <i class="fa fa-thumbs-up"></i>
+    <i class="fa fa-heart"></i>
+    <i class="fa fa-smile-o"></i>
+     350
+  </div>
+  <div class="col-2 text-end">
+    <a href="">
+      <span class="">Répondre</span>
+    </a>
+  </div>
+</div>
+<hr>
+<!-- end comment -->
+

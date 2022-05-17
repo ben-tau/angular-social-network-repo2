@@ -1,0 +1,114 @@
+
+<div class="containerPost row mb-3">
+  <div class="col-2">
+      <div class="my-1">
+          <a href="/">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span class="ms-2">Photo</span>
+          </a>
+      </div>
+      <div class="my-1">
+          <a href="/">
+              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span class="ms-2">Vidéo</span>
+          </a>
+      </div>
+      <div class="my-1">
+          <a href="">
+             <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+              <span class="ms-2">Article</span>
+          </a>
+      </div>
+  </div>
+  <div class="col-10 d-flex createPostCont">
+      <div class="" style="width:100%">
+        <form>
+          <div class="d-flex justify-content-center">
+            <label for="makePost" class="visually-hidden">Faire une publication</label>
+            <input type="text" class="form-control makePostInput" placeholder="Faire une publication" style="width:75%" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          </div>
+        </form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Créer une publication</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="" [formGroup]="createPostForm">
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-9">
+                      <div class="row">
+                        <div class="col-2">
+                          <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+                        </div>
+                        <div class="col-9">
+                          <h5 class="text-end">Jean Dupont</h5>
+                          <div class="d-flex">
+                            <label class="form-label" for="visibilite">Visibilité :</label>
+                            <select class="form-select" aria-label="Default select example" formControlName="visibilite">
+                              <option value="true">Tout le monde</option>
+                              <!-- <option selected value="false">Visibilité de la publication</option>
+
+                              <option value="false">Vos connexions seulement</option> -->
+                              <option value="false">Privé</option>
+                            </select>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="form-floating">
+                        <textarea #contenu class="form-control" placeholder="De quoi voulez-vous parler aujourd'hui ?" id="floatingTextarea" style="min-height:200px" formControlName="contenu"></textarea>
+                        <label for="floatingTextarea">Créer une publication</label>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="row">
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-film"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-1">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                        <div class="col-4 text-end">
+                          <button class="btn btn-primary rounded" [disabled]="!createPostForm.valid" (click)="addPost()" data-bs-dismiss="modal" aria-label="Close">Publier</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- fin Modal -->
+      </div>
+  </div>
+</div>
+

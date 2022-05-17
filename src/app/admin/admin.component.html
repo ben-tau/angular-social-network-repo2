@@ -1,0 +1,133 @@
+<app-admin-nav></app-admin-nav>
+
+<div id="users" style="padding-bottom: 10%; margin-top: 6%">
+  <div class="p-5">
+    <div class="row text-center">
+      <div class="col-md-3 col-xl-12">
+        <h1 style="font-weight: bold; font-size: 30px">Utilisateurs</h1>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div *ngIf="users?.length == 0" class="text-center">
+    <p style="font-size: 20px">Aucun utilisateur pour le moment..</p>
+  </div>
+
+  <div *ngIf="users?.length" class="container" id="main-container">
+    <div class="row">
+      <div
+        *ngFor="let user of users | slice: startPage:paginationLimit"
+        class="col-md-6 col-xl-3"
+      >
+        <div class="card m-b-30" style="margin-bottom: 10px">
+          <div class="card-body row">
+            <div class="col-6">
+              <a (click)="goToProfile(user)">
+                <div *ngIf="user.profilPhoto">
+                  <img
+                    [src]="displayProfilePhoto(user)"
+                    class="rounded-circle"
+                    style="margin-left: 25px; width: 60px"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div *ngIf="!user.profilPhoto">
+                  <img
+                    src="../../assets/images/user-profile-icon.jpg"
+                    class="rounded-circle"
+                    style="margin-left: 25px; width: 60px"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+            <div
+              class="col-6 card-title align-self-center mb-0"
+              style="margin-left: 0%"
+            >
+              <h5>{{ user.nomUtilisateur }}</h5>
+              <p class="m-0">{{ user.email }}</p>
+            </div>
+
+            <!-- <div *ngIf="user.currentJob">
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item">
+                                  {{user.currentJob}} at {{user.currentCompany}}
+                              </li>
+                          </ul>
+                      </div> -->
+            <hr style="margin-top: 30px" />
+            <div
+              *ngIf="!isAdmin(user)"
+              class="card-body"
+              style="align-items: center"
+            >
+              <div class="btn-group btn-group-sm p-1">
+                <button
+                  (click)="goToProfile(user)"
+                  type="button"
+                  class="btn btn-primary m-1"
+                  disabled
+                >
+                  Afficher profile
+                </button>
+              </div>
+              <div class="btn-group btn-group-sm p-1">
+                <button
+                  *ngIf="!user.profileStatus"
+                  (click)="activateProfile(user)"
+                  type="button"
+                  class="btn btn-success m-1"
+                >
+                  Activer
+                </button>
+              </div>
+              <div class="btn-group btn-group-sm p-1">
+                <button
+                  *ngIf="user.profileStatus"
+                  (click)="suspendProfile(user)"
+                  type="button"
+                  class="btn btn-warning m-1"
+                >
+                  Suspendre
+                </button>
+              </div>
+              <div class="btn-group btn-group-sm p-1">
+                <button
+                  (click)="deleteProfile(user)"
+                  type="button"
+                  class="btn btn-danger m-1"
+                >
+                  Supprimer
+                </button>
+              </div>
+            </div>
+            <div
+              *ngIf="isAdmin(user)"
+              class="card-body"
+              style="align-items: center"
+            >
+              <div class="btn-group btn-group-sm p-1">
+                <button disabled type="button" class="btn btn-primary m-1">
+                  Afficher profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center align-self-center">
+        <button
+          class="btn btn-outline-primary more-btn btn-sm m-2 col-md-2"
+          style="align-self: center"
+          *ngIf="users!.length > paginationLimit"
+          (click)="showMoreItems()"
+        >
+          Afficher plus..
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
