@@ -1,8 +1,66 @@
 header{
-  background-color: lightblue;
-  height:125px;
+  background-color: rgb(233, 233, 233);
+  height:215px;
+  font-family: 'Lato', sans-serif;
 }
 .headerRowCont{
   padding-top:30px;
-  padding-left:15px;
+  // padding-left:15px;
+}
+.mesInfosBtn{
+  background-color: #73C8D5;
+}
+.mesInfosBtn:hover{
+  background-color: #268895;
+}
+.monProfilBtn{
+  background-color: #A4D379;
+}
+.monProfilBtn:hover{
+  background-color: #477819;
+}
+.seDeconnecterBtn{
+  background-color: #F96D8A;
+}
+.seDeconnecterBtn:hover{
+  background-color: #b11c3a;
+}
+button{
+  font-size:125%;
+}
+.notifsBtn{
+  color:#EB7990;
+  font-size:150%;
+}
+.notifsNb{
+  color:#EB7990;
+}
+.bold{
+ font-weight: bold;
+}
+.networkBtn{
+  background-color: #F9D959
+}
+// .fa-exclamation{
+//   font-size:200%;
+//   margin-top:8px;
+// }
+.fa-bell{
+  font-size:165%;
+  margin-top: 9px;
+  color:white;
+}
+.circle{
+  height:45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color:lightblue
+}
+.redNb{
+  font-size:111%;
+  left:55px;
+}
+.notifSpan{
+  font-size: 150%;
+  color:#9c9c9c;
 }

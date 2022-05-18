@@ -12,10 +12,18 @@ export class WallAsideComponent implements OnInit {
   userInfos: any = [];
   networkInfos: any = [];
 
+<<<<<<< HEAD
   constructor(
     private utilisateurService: UserService,
     private connectionService: ConnectionService
   ) {}
+=======
+  @Input() userDetails!:any
+  userInfos:any = []
+  networkInfos:any = []
+
+  constructor(private utilisateurService:UserService,private connectionService :ConnectionService) { }
+>>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
 
   ngOnInit(): void {
     this.getUser();

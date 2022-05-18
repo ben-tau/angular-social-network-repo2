@@ -1,7 +1,7 @@
 
   <div class="circle1 d-flex">
       <div class="userInfos d-flex flex-column text-center align-items-center">
-          <img src="../../assets/images/logo.jpg" style="width:70px;height:70px" alt="social-network-logo">
+          <img src="../../assets/images/justlogo.png" style="width:70px;height:70px;border-radius: 50%;" alt="social-network-logo">
           <span class="namesSpan">{{userInfos?.firstname}} {{userInfos?.name}}</span>
           <span class="jobSpan">{{userInfos.actualJob}}</span>
           <span class="otherInfosSpan mt-5">{{userInfos.description}}</span>
@@ -13,7 +13,7 @@
           <p>Nombre de connexions : <span class="bold">{{networkInfos.length}}</span></p>
           <ul class="d-flex mt-3 sideNavBarUl">
               <li class="d-flex flex-column align-items-center mx-2" *ngFor="let networkFriend of networkInfos.slice(0,3)">
-                  <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+                  <img src="../../assets/images/justlogo.png" style="width:40px;height:40px" alt="social-network-logo">
                   <span>{{networkFriend.nomUtilisateur}}</span>
               </li>
               <!-- <li class="d-flex flex-column align-items-center">
@@ -29,7 +29,7 @@
                   <span>Nom Prénom</span>
               </li> -->
           </ul>
-          <button type="button" class="btn btn-primary mt-3" style="max-width:250px">Voir tout mon réseau</button>
+          <button type="button" class="btn btn-primary mx-2 mesInfosBtn">Voir tout mon réseau</button>
       </div>
   </div>
   <div class="circle3 rounded-circle">

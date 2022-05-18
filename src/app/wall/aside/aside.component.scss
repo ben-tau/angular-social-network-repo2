@@ -2,7 +2,7 @@
   height:550px;
   width:550px;
   border-radius: 50%;
-  background-color: rgb(134, 109, 109);
+  background-color: #E9E9E9;
   margin-left:35px;
 }
 .userInfos{
@@ -20,7 +20,7 @@
 }
 
 .circle2{
-  background-color: rgb(203, 184, 184);
+  background-color: #E9E9E9;
   height:350px;
   width:350px;
   margin-top:50px;
@@ -37,7 +37,7 @@
   margin-left:75px;
   height:300px;
   width:300px;
-  background-color: rgb(143, 129, 129);
+  background-color: #E9E9E9;
   padding-top:1px;
 }
 .circle3Cont{
@@ -51,4 +51,16 @@
 ul{
   margin:0;
   padding:0
+}
+.mesInfosBtn{
+  background-color: #73C8D5;
+}
+.mesInfosBtn:hover{
+  background-color: #268895;
+}
+.namesSpan,.jobSpan{
+  color: #268895;
+}
+.circle2Cont h3,.circle2Cont p{
+  color: #268895;
 }

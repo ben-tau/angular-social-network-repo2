@@ -1,38 +1,36 @@
 <!-- comment -->
-<div class="row my-2" *ngFor="let comment of comments">
-  <div class="col-1">
-    <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
-  </div>
-  <div class="col-11">
+<div class="container" *ngFor="let comment of comments">
+  <div class="row my-2" >
+    <div class="col-1">
+      <img src="../../assets/images/logo.jpg" style="width:40px;height:40px;border-radius:50%"
+        alt="social-network-logo">
+    </div>
+    <div class="col-11">
 
-    <div class="d-flex justify-content-between">
-      <h6 class="bold">{{comment.auteur.nomUtilisateur}}</h6>
-      <span class="date">{{comment.datePublication}}</span>
+      <div class="row">
+        <span class="col-6">{{comment.auteur.nomUtilisateur}} - Sans emploi actuellement</span>
+        <span class="col-6 text-end">{{comment.datePublication}}</span>
+      </div>
+      <div class="commentCont my-3 fst-italic fs-4">
+        " {{comment.contenu}} "
+      </div>
     </div>
-    <span>Sans emploi</span>
-    <div class="commentCont">
-      {{comment.contenu}}
+  </div>
+  <div class="row mt-2 justify-content-between">
+    <div class="col-2">
+      <a href="">
+        <i class="fa fa-thumbs-up me-2"> 350</i>
+        <i class="fa fa-heart mx-2"> 88 </i>
+        <i class="fa fa-smile-o mx-2"> 17</i>
+      </a>
     </div>
-  </div>
-</div>
-<div class="row mt-2 justify-content-between">
-  <div class="col-2">
-    <a href="">
-      <span>J'aime</span>
-    </a>
-  </div>
-  <div class="col-2">
-    <i class="fa fa-thumbs-up"></i>
-    <i class="fa fa-heart"></i>
-    <i class="fa fa-smile-o"></i>
-     350
-  </div>
-  <div class="col-2 text-end">
-    <a href="">
+    <div class="col-2 text-end">
+      <!-- <a href="" class="answerCommentLink">
       <span class="">Répondre</span>
-    </a>
+    </a> -->
+    </div>
   </div>
+  <hr>
 </div>
-<hr>
-<!-- end comment -->
 
+<!-- end comment -->

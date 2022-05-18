@@ -9,8 +9,9 @@
   height: 5px;
 }
 .postCont{
-  background-color: rgb(171, 127, 127);
-  padding: 10px 5px;
+  background-color: #73C8D5;
+  padding: 10px 5px 0 5px;
+  border-radius: 5px;
 }
 ul{
   list-style-type: none;
@@ -23,4 +24,33 @@ a{
 }
 .commentsCont{
   background-color: lightblue;
+  border-radius: 5px;
+}
+.postDatePublication{
+  font-size:125%;
+}
+.bottomPostLink:hover{
+  color:aliceblue
+}
+.bottomPostLink .fa{
+  font-size:200%
+}
+.bottomPostLink span{
+  font-size:130%
+}
+.bottomPostBtn{
+  color:#95979A;
+  border-color:#95979A
+}
+.bottomPostBtn:hover{
+  background-color: white;
+  border-color:white;
+  color:#73C8D5
+}
+.commentsLink{
+  text-decoration: none;
+  color:#7b7c7e;
+}
+.commentsLink:hover{
+  cursor:pointer
 }

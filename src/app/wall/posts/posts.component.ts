@@ -1,12 +1,11 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostsService } from 'src/app/services/posts.service';
 import { Post } from '../../model/post';
-import { Comment } from '../../model/comment';
 import { Formatters } from 'src/app/helpers/formatters';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommentsService } from 'src/app/services/comments.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-wall-posts',
@@ -75,21 +74,23 @@ export class WallPostsComponent implements OnInit {
   // }
 
   getPosts() {
-    this.postsService.getPosts(this.userDetails.id).subscribe((posts) => {
-      posts.sort((a, b) => {
-        if (a.datePublication < b.datePublication) return 1;
-        else if (a.datePublication > b.datePublication) return -1;
-        else return 0;
+    this.postsService
+      .getPosts(this.userDetails.id)
+      .subscribe((posts: Post[]) => {
+        posts.sort((a, b) => {
+          if (a.datePublication < b.datePublication) return 1;
+          else if (a.datePublication > b.datePublication) return -1;
+          else return 0;
+        });
+
+        posts.map((post) => {
+          let timestamp = +post.datePublication;
+
+          return Formatters.dateToString(timestamp, post, 'datePublication');
+        });
+
+        this.posts = posts;
       });
-
-      posts.map((post) => {
-        let timestamp = +post.datePublication;
-
-        return Formatters.dateToString(timestamp, post, 'datePublication');
-      });
-
-      this.posts = posts;
-    });
   }
 
   giveIdForComment(id: number) {
