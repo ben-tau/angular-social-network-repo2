@@ -1,22 +1,22 @@
 
 <div class="containerPost row mb-3">
-  <div class="col-2">
-      <div class="my-1">
-          <a href="/">
-              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
-              <span class="ms-2">Photo</span>
+  <div class="col-2 ps-4">
+      <div class="my-3">
+          <a href="/" class="containerPostFirstColLink">
+            <i class="fa fa-file-image-o"></i>
+            <span class="ms-2 containerPostFirstColSpan">&nbsp;Photo</span>
           </a>
       </div>
-      <div class="my-1">
-          <a href="/">
-              <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
-              <span class="ms-2">Vidéo</span>
+      <div class="my-3" >
+          <a href="/" class="containerPostFirstColLink">
+              <i class="fa fa-film"></i>
+              <span class="ms-2 containerPostFirstColSpan">Vidéo</span>
           </a>
       </div>
-      <div class="my-1">
-          <a href="">
-             <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
-              <span class="ms-2">Article</span>
+      <div class="my-3" >
+          <a href="" class="containerPostFirstColLink">
+              <i class="fa fa-newspaper-o"></i>
+              <span class="ms-2 containerPostFirstColSpan">Article</span>
           </a>
       </div>
   </div>
@@ -40,17 +40,14 @@
               <div class="modal-body">
                 <form action="" [formGroup]="createPostForm">
                   <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-9">
-                      <div class="row">
-                        <div class="col-2">
-                          <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
-                        </div>
-                        <div class="col-9">
+                    <div class="col-2">
+                      <img src="../../assets/images/justlogo.png" style="width:70px;height:70px" alt="social-network-logo">
+                    </div>
+                    <div class="col-10">
                           <h5 class="text-end">Jean Dupont</h5>
                           <div class="d-flex">
-                            <label class="form-label" for="visibilite">Visibilité :</label>
                             <select class="form-select" aria-label="Default select example" formControlName="visibilite">
+                              <option value="">--Sélectionnez la visibilité--</option>
                               <option value="true">Tout le monde</option>
                               <!-- <option selected value="false">Visibilité de la publication</option>
 
@@ -58,9 +55,6 @@
                               <option value="false">Privé</option>
                             </select>
                           </div>
-
-                        </div>
-                      </div>
                     </div>
                     <div class="col-12 mt-3">
                       <div class="form-floating">
@@ -70,31 +64,13 @@
                     </div>
                     <div class="col-12 mt-3">
                       <div class="row">
-                        <div class="col-1">
+                        <a class="col-1">
                           <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-1">
+                        </a>
+                        <a class="col-1">
                           <i class="fa fa-film"></i>
-                        </div>
-                        <div class="col-1">
-                          <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-1">
-                          <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-1">
-                          <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-1">
-                          <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-1">
-                          <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-1">
-                          <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="col-4 text-end">
+                        </a>
+                        <div class="col-10 text-end">
                           <button class="btn btn-primary rounded" [disabled]="!createPostForm.valid" (click)="addPost()" data-bs-dismiss="modal" aria-label="Close">Publier</button>
                         </div>
                       </div>

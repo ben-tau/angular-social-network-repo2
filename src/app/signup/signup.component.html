@@ -4,7 +4,7 @@
       <div class="mylogo">
         <img
           id="mylogo"
-          src="../../assets/images/logo.jpg"
+          src="../../assets/images/justlogo.png"
           alt=""
           style="max-width: 150px"
         />
@@ -116,18 +116,21 @@
               >
             </div>
             <br />
-            <button
-              class="sign-in-btn btn btn-primary"
-              [disabled]="!signupForm.valid"
-              type="submit"
-            >
-              <span
-                *ngIf="loading"
-                class="spinner-border spinner-border-sm"
-                role="status"
-              ></span>
-              <span *ngIf="!loading"> S'inscrire</span>
-            </button>
+            <div class="text-center">
+              <button
+                class="btn btn-lg signupBtn"
+                [disabled]="!signupForm.valid"
+                type="submit"
+              >
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                ></span>
+                <span *ngIf="!loading" class="text-white"> S'inscrire</span>
+              </button>
+            </div>
+
           </form>
           <div class="join-now">
             Déjà inscrit ?

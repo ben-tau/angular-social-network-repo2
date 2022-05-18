@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
-import { NavigationEnd, Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { DetailsUtilisateur } from '../model/details-utilisateur';
-import { Utilisateur } from '../model/utilisateur';
-import { UtilisateurService } from '../services/utilisateur.service';
-// import { WallPublicationsComponent } from '../mur-publications/mur-publications.component';
-import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: /*'app-navbar'*/'[app-navbar]',
   templateUrl: './navbar.component.html',
@@ -15,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class NavbarComponent implements OnInit{
   ngOnInit(): void{
-    
+
   }
 }
 

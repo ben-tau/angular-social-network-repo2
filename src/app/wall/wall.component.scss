@@ -1,14 +1,17 @@
 
 .sideNavBar{
-  background-color: rgb(162, 162, 162);
+  background-color: #E9E9E9;
+  border-radius: 5px;
 }
-
-
-
-
-
-
-
+.sideNavBar.fixed{
+  position:fixed;
+  top:0;
+  z-index:1000;
+  height:100%;
+}
+.mainPostCont.readjust{
+  margin-left:8.3%;
+}
 a{
   text-decoration: none;
   color:black
@@ -22,7 +25,13 @@ ul{
   padding:0;
 }
 
-
+.circleCont.fixed{
+  position:fixed;
+  top:0;
+  left:75.5%;
+  z-index:1000;
+  height:100%;
+}
 
 
 

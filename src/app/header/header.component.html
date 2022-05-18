@@ -1,14 +1,16 @@
 <header>
-  <div class="row align-items-center headerRowCont">
-    <div class="col-3 d-flex">
+  <div class="row align-items-center justify-content-between headerRowCont ps-4">
+    <div class="col-2 d-flex justify-content-start">
+      <a href="http://localhost:4200/feed" class="d-flex">
       <img
-        src="../../assets/images/logo.jpg"
-        style="width: 60px; height: 60px"
+        src="../../assets/images/logo.png"
+        style="width: 120px"
         alt="social-network-logo"
       />
-      <h1 class="ms-2">SNH</h1>
+      <!-- <h1 class="ms-2">Shanet</h1> -->
+    </a>
     </div>
-    <div class="col-5 d-flex justify-content-center">
+    <div class="col-3 d-flex justify-content-center">
       <input
         type="text"
         class="form-control"
@@ -16,12 +18,45 @@
         style="width: 590px"
       />
     </div>
-    <div class="col-4 text-end logBtnCont pe-5">
-      <button type="button" class="btn btn-primary mx-2">Mes infos</button>
-      <button type="button" class="btn btn-secondary mx-2">Mon profil</button>
-      <button (click)="logOut()" type="button" class="btn btn-secondary mx-2">
+    <div class="col-4 text-end">
+      <!-- <a
+        routerLink="/notifications"
+        type="button"
+        class="btn btn-outline mx-2 notifsBtn"
+      >
+        <i class="fa fa-sticky-note"><span class="notifsNb bold"> {{notificationsSize}} notifications</span></i>
+      </a> -->
+      <div class="d-flex flex-column align-items-right">
+        <div class="">
+          <a
+      routerLink="/notifications" type="button" class="btn btn-outline rounded position-relative">
+        <div class="circle">
+          <i class="fa fa-bell"></i>
+        </div>
+        <span class="position-absolute translate-middle badge rounded-pill bg-danger redNb">
+          {{notificationsSize}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+        </a>
+        <span class="notifSpan">Notifications</span>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="col-2 text-end logBtnCont pe-5">
+      <!-- <a type="button" class="btn btn-primary mx-2 mesInfosBtn">Mon Compte</a> -->
+      <!-- <a routerLink="/feed" type="button" class="btn btn-secondary mx-2 monProfilBtn">
+        Mon Profil
+      </a> -->
+
+      <!-- <a routerLink="/network" type="button" class="btn btn-secondary mx-2 networkBtn">
+        Mon Réseau
+      </a> -->
+      <a (click)="logOut()" type="button" class="btn btn-secondary mx-2 seDeconnecterBtn">
         Se Déconnecter
-      </button>
+      </a>
     </div>
   </div>
 </header>

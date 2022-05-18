@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ConnectionService } from 'src/app/services/connection.service';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { UserService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-aside',
@@ -13,7 +13,7 @@ export class WallAsideComponent implements OnInit {
   userInfos:any = []
   networkInfos:any = []
 
-  constructor(private utilisateurService:UtilisateurService,private connectionService :ConnectionService) { }
+  constructor(private utilisateurService:UserService,private connectionService :ConnectionService) { }
 
   ngOnInit(): void {
     this.getUser()

@@ -1,18 +1,7 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-// import { CreerPublicationComponent } from '../creer-publication/creer-publication.component';
-import { DetailsUtilisateur } from '../model/details-utilisateur';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Publication } from '../model/publication';
-import { Utilisateur } from '../model/utilisateur';
-import { UtilisateurService } from '../services/utilisateur.service';
-import { WallPostsComponent } from './posts/posts.component';
-import { DomSanitizer } from '@angular/platform-browser';
-import { ReseauService } from '../services/reseau.service';
-import { Formatters } from '../helpers/formatters';
+import { Router } from '@angular/router';
 import { PostsService } from '../services/posts.service';
-import { Post } from '../model/post';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-wall',

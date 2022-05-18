@@ -16,6 +16,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
 import { CommentsComponent } from './posts/comments/comments.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
-    CommentsComponent
+    CommentsComponent,
   ],
   imports: [
     CommonModule,
@@ -39,11 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatIconModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
-  exports:[
-    HeaderComponent,
-    FooterComponent,
-    NavbarComponent
-  ]
+  exports: [HeaderComponent, FooterComponent, NavbarComponent],
 })
-export class WallModule { }
+export class WallModule {}

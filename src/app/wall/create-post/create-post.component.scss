@@ -1,18 +1,32 @@
 .containerPost{
-  background-color: rgb(119, 119, 119);
+  background-color: #E9E9E9;
   padding:10px 5px;
   border-radius: 5px;
 }
 .createPostCont{
-  margin-top:45px;
+  margin-top:60px;
 }
 a{
   text-decoration: none;
   color:black
 }
 a:hover{
-  color:blue
+  color:#73C8D5
 }
 .makePostInput{
   cursor: pointer;
 }
+.makePostInput:hover{
+  border:1px solid #73C8D5
+}
+.containerPostFirstColLink{
+  color: #616161
+}
+.fa{
+  font-size: 170%;
+}
+.containerPostFirstColSpan{
+  font-size: 150%;
+}
+
+

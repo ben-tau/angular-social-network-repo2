@@ -41,6 +41,9 @@ $front-end-theme: mat.define-light-theme(
 
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+
 html,
 body {
   background-color: rgb(240, 240, 240);
@@ -48,4 +51,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   width:100%;
   overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
 }
+
+
