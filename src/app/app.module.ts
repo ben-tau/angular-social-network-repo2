@@ -26,37 +26,39 @@ import { AdminNavComponent } from './admin/admin-nav/admin-nav.component';
 import { SuspendedComponent } from './suspended/suspended.component';
 import { NavComponent } from './suspended/nav/nav.component';
 import { AuthGuard } from './guards/auth.guard';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NetworkComponent } from './network/network.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  { path: 'signup', component: SignupComponent },
-  {
-    path: 'suspended',
-    component: SuspendedComponent,
-  },
-  {
-    path: 'feed',
-    component: WallComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'admin',
-    component: AdminComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: '',
-    redirectTo: 'feed',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: 'feed',
-  },
-
+  // {
+  //   path: 'login',
+  //   component: LoginComponent,
+  // },
+  // { path: 'signup', component: SignupComponent },
+  // {
+  //   path: 'suspended',
+  //   component: SuspendedComponent,
+  // },
+  // {
+  //   path: 'feed',
+  //   component: WallComponent,
+  //   canActivate: [AuthGuard],
+  // },
+  // { path: 'notifications', component: NotificationsComponent },
+  // {
+  //   path: 'admin',
+  //   component: AdminComponent,
+  //   canActivate: [AuthGuard],
+  // },
+  // {
+  //   path: '',
+  //   redirectTo: 'feed',
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: '**',
+  //   redirectTo: 'feed',
+  // },
   // {
   //   path: 'users',
   //   children: [
@@ -100,7 +102,6 @@ const appRoutes: Routes = [
   // },
   // { path: 'settings', component: UsersettingsComponent },
   // { path: 'network', component: NetworkComponent },
-  // { path: 'notifications', component: NotificationsComponent },
   // { path: 'jobs', component: JobsComponent },
 ];
 
@@ -113,6 +114,8 @@ const appRoutes: Routes = [
     AdminNavComponent,
     SuspendedComponent,
     NavComponent,
+    NotificationsComponent,
+    NetworkComponent,
     // InscriptionComponent,
     // SignInComponent,
     // ReseauComponent,
@@ -141,7 +144,7 @@ const appRoutes: Routes = [
     //SignInModule,
     MatStepperModule,
     //HttpClientInMemoryWebApiModule.forRoot(DataService),
-    RouterModule.forRoot(appRoutes,{onSameUrlNavigation:'reload'}),
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }),
   ],
   providers: [
     // UtilisateurService,

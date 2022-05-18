@@ -5,10 +5,10 @@ import { AuthenticationService } from '../services/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Publication } from '../model/publication';
 import { Utilisateur } from '../model/utilisateur';
-import { UtilisateurService } from '../services/utilisateur.service';
+// import { UtilisateurService } from '../services/utilisateur.service';
 import { WallPostsComponent } from './posts/posts.component';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ReseauService } from '../services/reseau.service';
+// import { ReseauService } from '../services/reseau.service';
 import { Formatters } from '../helpers/formatters';
 import { PostsService } from '../services/posts.service';
 import { Post } from '../model/post';
@@ -20,8 +20,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./wall.component.scss'],
 })
 export class WallComponent implements OnInit {
-
-  userDetails!:any
+  userDetails!: any;
 
   constructor(
     private authenticationService: AuthenticationService,

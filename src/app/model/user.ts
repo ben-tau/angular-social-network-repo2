@@ -9,6 +9,9 @@ export class User {
   motDePasseConf: string | undefined;
   profilPhoto: string | undefined;
   profileStatus: boolean | undefined;
+  currentJob: string | undefined;
   roles: Array<Role> = new Array<Role>();
-  reseau!:Connection[]
+  reseau!: Connection[];
+  destinataires: Array<Connection> = new Array<Connection>();
+  expediteurs: Array<Connection> = new Array<Connection>();
 }

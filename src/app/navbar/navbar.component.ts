@@ -4,19 +4,16 @@ import { NavigationEnd, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { DetailsUtilisateur } from '../model/details-utilisateur';
 import { Utilisateur } from '../model/utilisateur';
-import { UtilisateurService } from '../services/utilisateur.service';
+// import { UtilisateurService } from '../services/utilisateur.service';
 // import { WallPublicationsComponent } from '../mur-publications/mur-publications.component';
 import { DomSanitizer } from '@angular/platform-browser';
 @Component({
-  selector: /*'app-navbar'*/'[app-navbar]',
+  selector: /*'app-navbar'*/ '[app-navbar]',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-
-export class NavbarComponent implements OnInit{
-  ngOnInit(): void{
-    
-  }
+export class NavbarComponent implements OnInit {
+  ngOnInit(): void {}
 }
 
 // export class NavbarComponent implements OnInit {

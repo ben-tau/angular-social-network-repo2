@@ -1,57 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Utilisateur } from '../model/utilisateur';
+import { User } from '../model/user';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpResponse,
+} from '@angular/common/http';
 import { ParametresUtilisateur } from '../model/parametres-utilisateur';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-  }),
-};
 
 @Injectable({
   providedIn: 'root',
 })
-export class UtilisateurService {
+export class UserService {
   private host: string = 'http://localhost:8080/api/v0/utilisateurs';
 
   constructor(private http: HttpClient) {}
 
-  getUser(id: number): Observable<any> {
-    return this.http.get<any>(`${this.host}/${id}`)
-    .pipe(
+  getUser(id: number | undefined | null | string): Observable<any> {
+    return this.http.get<any>(`${this.host}/${id}`).pipe(
       retry(2),
       catchError((error: HttpErrorResponse) => {
-      console.log(error)
-      return throwError(() => error)
-    }))
-  }
-
-  getOtherUser(id: string, otherId: string): Observable<Utilisateur> {
-    return this.http.get<Utilisateur>(
-      `${this.host}/${id}/user-profile/${otherId}`
+        console.log(error);
+        return throwError(() => error);
+      })
     );
   }
 
-  editUserSettings(
-    usersettings: ParametresUtilisateur
-  ): Observable<HttpResponse<any>> {
-    return this.http.put<ParametresUtilisateur>(
-      `${this.host}/${usersettings.id?.toString()}/settings/`,
-      usersettings,
-      { observe: 'response' }
-    );
-  }
-
-  changeUsername(
-    usersettings: ParametresUtilisateur
-  ): Observable<HttpResponse<any>> {
-    return this.http.put<ParametresUtilisateur>(
-      `${this.host}/${usersettings.id?.toString()}/settings/change-username/`,
-      usersettings,
-      { observe: 'response' }
+  getUsers(): Observable<any> {
+    return this.http.get<any>(`${this.host}/`).pipe(
+      retry(2),
+      catchError((error: HttpErrorResponse) => {
+        console.log(error);
+        return throwError(() => error);
+      })
     );
   }
 
@@ -61,14 +43,6 @@ export class UtilisateurService {
     return this.http.put<ParametresUtilisateur>(
       `${this.host}/${usersettings.id?.toString()}/settings/change-password/`,
       usersettings,
-      { observe: 'response' }
-    );
-  }
-
-  editUserJob(user: Utilisateur): Observable<HttpResponse<any>> {
-    return this.http.put<ParametresUtilisateur>(
-      `${this.host}/${user.id?.toString()}/editJob`,
-      user,
       { observe: 'response' }
     );
   }

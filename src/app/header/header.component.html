@@ -18,7 +18,20 @@
     </div>
     <div class="col-4 text-end logBtnCont pe-5">
       <button type="button" class="btn btn-primary mx-2">Mes infos</button>
-      <button type="button" class="btn btn-secondary mx-2">Mon profil</button>
+      <a routerLink="/feed" type="button" class="btn btn-secondary mx-2">
+        Mon profil
+      </a>
+      <a
+        routerLink="/notifications"
+        type="button"
+        class="btn btn-secondary mx-2"
+      >
+        Notifications
+      </a>
+      <a routerLink="/network" type="button" class="btn btn-secondary mx-2">
+        Mon Réseau
+      </a>
+
       <button (click)="logOut()" type="button" class="btn btn-secondary mx-2">
         Se Déconnecter
       </button>
