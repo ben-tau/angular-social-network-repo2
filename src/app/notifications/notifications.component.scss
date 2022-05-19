@@ -1,0 +1,14 @@
+.sideNavBar{
+  background-color: #E9E9E9;
+  border-radius: 5px;
+}
+.sideNavBar.fixed{
+  position:fixed;
+  top:0;
+  z-index:1000;
+  height:100%;
+}
+.connectionsCont.readjust{
+  margin-left:8.3%;
+}
+

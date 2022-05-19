@@ -61,7 +61,23 @@ export class NetworkComponent implements OnInit {
     this.startPage = 0;
     this.paginationLimit = 8;
 
-    console.log('Current User: ', this.currentUser);
+    this.reworkAppUsersBeforeDisplay()
+  }
+
+  reworkAppUsersBeforeDisplay(){
+    let newArr = this.appUsers.map(user=>{
+      console.log("id",this.currentUser.id);
+
+      if(user.id == this.currentUser.id){
+        console.log("ici");
+
+        return;
+      }
+      return user
+    })
+    console.log(newArr);
+
+    console.log(this.appUsers);
   }
 
   addConnection(user: User) {

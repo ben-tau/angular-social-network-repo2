@@ -2,8 +2,87 @@
 <main class="pt-4">
   <div class="row">
     <div app-navbar class="col-1 sideNavBar pt-4"></div>
-    <div class="col-11">
-      <div *ngIf="appUsers.length != 0" id="searchResults">
+    <div class="col-11 networkCont">
+      <div *ngIf="appUsers.length != 0" class="text-white row d-flex justify-content-center my-5" id="adminMembers">
+        <div class="text-center p-5">
+          <h1 style="font-weight: bold; font-size: 30px; color: black">Contacts Potentiels</h1>
+        </div>
+        <div *ngIf="appUsers.length == 0" class="text-center text-muted">
+          <p style="font-size: 20px">Aucun profil pour le moment..</p>
+        </div>
+        <div *ngFor="let user of appUsers" class="col-2 card text-dark mx-3 my-3"
+          style="min-width: 18rem; max-width: 25rem;">
+          <div class="card-header row justify-content-between" style="height:125px;">
+            <div *ngIf="user.profilPhoto" class="col-2 mt-2"><img style="width: 100%;" class="card-img-top"
+                alt="profile image"></div>
+            <div *ngIf="!user.profilPhoto" class="col-2">
+              <img src="../../assets/images/user-profile-icon.jpg" class="rounded-circle"
+                style="margin-left: 25px; width: 60px" alt="" loading="lazy" />
+            </div>
+            <div *ngIf="user.id != currentUser.id" class="col-8">
+              <h4>{{ user.nomUtilisateur }}</h4>
+              <h6>{{ user.email }}</h6>
+            </div>
+          </div>
+          <!-- <div class="card-body row" id="AdminMemberCardBody">
+            <hr>
+          </div> -->
+          <div class="d-flex flex-column align-items-center text-center my-4">
+            <button *ngIf="!connected(user.id) && !hasRequestPending(user.id)" (click)="addConnection(user)"
+              type="button" class="btn my-2 mx-4 addConnectionBtn">Ajouter</button>
+            <button *ngIf="connected(user.id) && !hasRequestPending(user.id)" disabled type="button"
+              class="btn my-2 mx-4 connectedBtn"><i class="bi bi-person-check-fill"> Connecté</i></button>
+            <button *ngIf="hasRequestPending(user.id)" disabled type="button" class="btn my-2 mx-4 inWaitingBtn"><i
+                class="bi bi-clock-fill"> En attente</i></button>
+            <button type="button" class="btn my-2 mx-4 seeProfileBtn">Voir profil</button>
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <div class="text-white row d-flex justify-content-center my-5" id="adminMembers">
+        <div class="text-center p-5">
+          <h1 style="font-weight: bold; font-size: 30px; color:black">Votre Réseau</h1>
+        </div>
+        <div *ngIf="network.length == 0" class="text-center text-muted">
+          <p style="font-size: 20px">
+            Pas de connection pour le moment. Faites de nouvelles connections!
+          </p>
+        </div>
+        <div *ngFor="let user of network" class="col-2 card text-dark mx-3 my-3"
+          style="min-width: 18rem; max-width: 25rem;">
+          <div class="card-header row justify-content-between" style="height:125px;">
+            <div *ngIf="user.profilPhoto" class="col-2 mt-2"><img style="width: 100%;" class="card-img-top"
+                alt="profile image"></div>
+            <div *ngIf="!user.profilPhoto" class="col-2">
+              <img src="../../assets/images/user-profile-icon.jpg" class="rounded-circle"
+                style="margin-left: 25px; width: 60px" alt="" loading="lazy" />
+            </div>
+            <div *ngIf="user.id != currentUser.id" class="col-8">
+              <h4>{{ user.nomUtilisateur }}</h4>
+              <h6>{{ user.email }}</h6>
+            </div>
+          </div>
+          <!-- <div class="card-body row" id="AdminMemberCardBody">
+            <hr>
+          </div> -->
+          <div class="d-flex flex-column align-items-center text-center my-4">
+            <button type="button" class="btn m-1 seeProfileBtn">
+              Voir profil
+            </button>
+            <button type="button" class="btn m-1 addConnectionBtn">
+              Envoyer un message
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <!-- <div *ngIf="appUsers.length != 0" id="searchResults">
         <div class="text-center p-5">
           <h1 style="font-weight: bold; font-size: 30px">Contacts Potentiels</h1>
         </div>
@@ -46,13 +125,13 @@
                       <p class="m-0">{{ user.email }}</p>
                     </div>
 
-                    <div *ngIf="user.currentJob">
-                      <!-- <ul class="list-group list-group-flush">
+                    <div *ngIf="user.currentJob"> -->
+      <!-- <ul class="list-group list-group-flush">
                       <li class="list-group-item">
                         {{ user.currentJob }} at {{ user.currentCompany }}
                       </li>
                     </ul> -->
-                    </div>
+      <!-- </div>
                     <div class="card-body">
                       <div class="btn-group btn-group-sm p-1">
                         <div
@@ -92,8 +171,7 @@
                             "
                             disabled
                           >
-                            <i class="bi bi-clock-fill"></i>
-                            En attente
+                            <i class="bi bi-clock-fill"> En attente</i>
                           </button>
                         </div>
                         <button
@@ -121,9 +199,21 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div id="network" style="padding-bottom: 10%">
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div id="network" style="padding-bottom: 10%">
         <div class="text-center p-5">
           <h1 style="font-weight: bold; font-size: 30px">Votre Réseau</h1>
         </div>
@@ -170,15 +260,15 @@
                     <p style="font-size: large" class="m-0">
                       <strong>{{ user.email }}</strong>
                     </p>
-                  </div>
-                  <!-- <div *ngIf="user.currentJob">
+                  </div> -->
+      <!-- <div *ngIf="user.currentJob">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         {{user.currentJob}} at {{user.currentCompany}}
                                     </li>
                                 </ul>
                             </div> -->
-                  <div class="card-body">
+      <!-- <div class="card-body">
                     <div class="btn-group btn-group-sm p-1">
                       <button type="button" class="btn btn-primary m-1">
                         Voir profile
@@ -193,9 +283,16 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+
+
+      <!-- ----------------------------------------- -->
+
+
+
     </div>
   </div>
+
+
+
 </main>
-
-
