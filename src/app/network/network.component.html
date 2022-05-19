@@ -1,8 +1,9 @@
 <app-header></app-header>
+{{reworkAppUsersBeforeDisplay()}}
 <main class="pt-4">
   <div class="row">
     <div app-navbar class="col-1 sideNavBar pt-4 shadow1"></div>
-    <div class="col-11">
+    <div class="col-11 networkCont">
       <div *ngIf="appUsers.length != 0" id="searchResults">
         <div class="text-center p-5">
           <h1 style="font-weight: bold; font-size: 30px">Contacts Potentiels</h1>
