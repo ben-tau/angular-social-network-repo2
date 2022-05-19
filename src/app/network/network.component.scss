@@ -62,3 +62,36 @@
   z-index: 1000;
   height: 100%;
 }
+
+.btn {
+  color: white;
+  font-weight: bold;
+  width: 200px;
+}
+.addConnectionBtn {
+  background-color: #a9da7d;
+}
+.addConnectionBtn:hover {
+  background-color: #6c9e3f;
+}
+.connectedBtn {
+  background-color: #75cad7;
+}
+.connectedBtn:hover {
+  background-color: #36838f;
+}
+.inWaitingBtn {
+  background-color: #939598;
+}
+.inWaitingBtn:hover {
+  background-color: #4e4f51;
+}
+.seeProfileBtn {
+  background-color: #75cad7;
+}
+.seeProfileBtn:hover {
+  background-color: #36838f;
+}
+.networkCont.readjust {
+  margin-left: 8.3%;
+}

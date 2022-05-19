@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main class="pt-4">
   <div class="row">
-    <div app-navbar class="col-1 sideNavBar pt-4"></div>
+    <div app-navbar class="col-1 sideNavBar pt-4 shadow1"></div>
     <div class="col-11">
       <div id="searchResults">
         <div class="text-center p-5">
@@ -210,22 +210,159 @@
                         <strong>{{ user.email }}</strong>
                       </p>
                     </div>
-                    <!-- <div *ngIf="user.currentJob">
+
+                    <div *ngIf="user.currentJob">
+                      <!-- <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        {{ user.currentJob }} at {{ user.currentCompany }}
+                      </li>
+                    </ul> -->
+                    </div>
+                    <div class="card-body d-flex justify-content-center">
+                      <div class="d-flex flex-column aligns-items-center">
+                        <div
+                          *ngIf="
+                            connected(user.id) && !hasRequestPending(user.id)
+                          "
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-success m-1"
+                            style="font-size: 14px"
+                            disabled
+                          >
+                            <i class="bi bi-person-check-fill"></i>
+                            Connecté
+                          </button>
+                        </div>
+                        <div
+                          *ngIf="
+                            !connected(user.id) && !hasRequestPending(user.id)
+                          "
+                        >
+                          <button
+                            (click)="addConnection(user)"
+                            type="button"
+                            style="font-size: 14px"
+                            class="btn btn-success m-1"
+                          >
+                            <i class="bi bi-person-plus-fill"></i>
+                            Ajouter
+                          </button>
+                        </div>
+                        <div *ngIf="hasRequestPending(user.id)">
+                          <button
+                            type="button"
+                            class="btn m-1"
+                            style="
+                              font-size: 14px;
+                              color: white;
+                              background-color: rgb(48, 48, 48);
+                            "
+                            disabled
+                          >
+                            <i class="bi bi-clock-fill"></i>
+                            En attente
+                          </button>
+                        </div>
+                        <button
+                          type="button"
+                          style="font-size: 14px; color: white"
+                          class="btn btn-info m-1"
+                        >
+                          Voir profil
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center align-self-center">
+              <button
+                class="btn btn-outline-primary btn-sm m-2 col-md-2"
+                style="align-self: center"
+                *ngIf="paginationLimit! < appUsers.length"
+                (click)="showMoreItems()"
+              >
+                Voir plus..
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="network" style="padding-bottom: 10%">
+        <div class="text-center p-5">
+          <h1 style="font-weight: bold; font-size: 30px">Votre Réseau</h1>
+        </div>
+        <div *ngIf="network.length == 0" class="text-center text-muted">
+          <p style="font-size: 20px">
+            Pas de connection pour le moment. Faites de nouvelles connections!
+          </p>
+        </div>
+
+        <div *ngIf="network.length" class="container" id="main-container">
+          <div class="row">
+            <div *ngFor="let user of network" class="col-md-6 col-xl-3">
+              <div class="card m-b-30">
+                <div class="card-body row">
+                  <div class="col-6">
+                    <a>
+                      <div *ngIf="user.profilPhoto">
+                        <img
+                          [src]="user.profilPhoto"
+                          class="rounded-circle"
+                          style="
+                            cursor: pointer;
+                            margin-left: 25px;
+                            width: 60px;
+                          "
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                      <div *ngIf="!user.profilPhoto">
+                        <img
+                          src="../../assets/images/user-profile-icon.jpg"
+                          class="rounded-circle"
+                          style="
+                            cursor: pointer;
+                            margin-left: 25px;
+                            width: 60px;
+                          "
+                          alt=""
+                          loading="lazy"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="col-6 card-title align-self-center mb-0"
+                    style="margin-left: 0%"
+                  >
+                    <h5 style="font-size: large">
+                      <strong>{{ user.nomUtilisateur }}</strong>
+                    </h5>
+                    <p style="font-size: large" class="m-0">
+                      <strong>{{ user.email }}</strong>
+                    </p>
+                  </div>
+                  <!-- <div *ngIf="user.currentJob">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         {{user.currentJob}} at {{user.currentCompany}}
                                     </li>
                                 </ul>
                             </div> -->
-                    <div class="card-body">
-                      <div class="btn-group btn-group-sm p-1">
-                        <button type="button" class="btn btn-primary m-1">
-                          Voir profile
-                        </button>
-                        <button type="button" class="btn btn-success m-1">
-                          Envoyer un message
-                        </button>
-                      </div>
+                  <div class="card-body d-flex justify-content-center">
+                    <div class="d-flex flex-column aligns-items-center">
+                      <button type="button" class="btn btn-primary m-1">
+                        Voir profile
+                      </button>
+                      <button type="button" class="btn btn-success m-1">
+                        Envoyer un message
+                      </button>
                     </div>
                   </div>
                 </div>

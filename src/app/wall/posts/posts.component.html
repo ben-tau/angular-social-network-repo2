@@ -14,12 +14,20 @@
 </div>
 <div class="row">
   <div *ngIf="loading" class="text-center">
+<<<<<<< HEAD
     <span class="spinner-border spinner-border-lg" role="status"></span>
+=======
+    <span class="spinner-border spinner-border-lg postsLoader" role="status"></span>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
   </div>
 
   <div *ngIf="!loading">
     <!-- post -->
+<<<<<<< HEAD
     <div class="col-12" *ngFor="let post of posts">
+=======
+    <div class="col-12 mainPostCont my-4 shadow1" *ngFor="let post of posts">
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
       <div class="row postCont my-2">
         <div class="col-2">
           <div class="d-flex">
@@ -42,7 +50,11 @@
             <img
               [src]="post.publicationImageUrl"
               alt=""
+<<<<<<< HEAD
               style="width: 85%"
+=======
+              style="max-height: 725px;max-width: 100%;border-radius: 10px;"
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               class="my-4"
               loading="lazy"
             />
@@ -63,49 +75,89 @@
                 (click)="giveIdForComment(post.id)"
                 class="bottomPostLink"
               >
+<<<<<<< HEAD
                 <i class="fa fa-comments"></i>
                 <span> Commenter</span>
+=======
+                <div class="button text-center pt-2">
+                  <i class="fa fa-comments"></i>
+                  <span>&nbsp;Commenter</span>
+                </div>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               </a>
             </li>
             <li>
               <a href="/" class="bottomPostLink">
+<<<<<<< HEAD
                 <i class="fa fa-share-alt-square"></i>
                 <span> Partager</span>
+=======
+                <div class="button text-center pt-2">
+                  <i class="fa fa-share-alt-square"></i>
+                  <span>&nbsp;Partager</span>
+                </div>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               </a>
             </li>
             <li>
               <a href="/" class="bottomPostLink">
+<<<<<<< HEAD
                 <i class="fa fa-volume-control-phone"></i>
                 <span> Contacter</span>
+=======
+                <div class="button text-center pt-2">
+                  <i class="fa fa-envelope"></i>
+                  <span>&nbsp;Contacter</span>
+                </div>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               </a>
             </li>
           </ul>
         </div>
         <div class="col-12 mt-5">
           <div class="row">
+<<<<<<< HEAD
             <div class="col-2">
+=======
+            <div class="col-4">
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               <button
                 type="button"
                 class="btn btn-outline-primary me-1 bottomPostBtn"
               >
+<<<<<<< HEAD
                 <i class="fa fa-thumbs-up"></i>
+=======
+                <i class="fa fa-thumbs-up">&nbsp;55</i>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
                 <span class="thumbsCounter"></span>
               </button>
               <button
                 type="button"
                 class="btn btn-outline-primary mx-1 bottomPostBtn"
               >
+<<<<<<< HEAD
                 <i class="fa fa-heart"></i>
+=======
+                <i class="fa fa-heart">&nbsp;32</i>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
                 <span class="likesCounter">&nbsp;{{ post.likes }}</span>
               </button>
               <button
                 type="button"
                 class="btn btn-outline-primary mx-1 bottomPostBtn"
               >
+<<<<<<< HEAD
                 <i class="fa fa-smile-o"></i>
               </button>
             </div>
             <div class="col-8"></div>
+=======
+                <i class="fa fa-smile-o">&nbsp;14</i>
+              </button>
+            </div>
+            <div class="col-6"></div>
+>>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
             <div
               class="col-2 text-end pt-3"
               (click)="giveIdForComment(post.id)"

@@ -5,6 +5,11 @@
   background-color: #E9E9E9;
   margin-left:35px;
 }
+.shadow1{
+  -moz-box-shadow: 4px 4px 10px #888;
+  -webkit-box-shadow: 4px 4px 10px #888;
+  box-shadow: 4px 4px 10px #888;
+}
 .userInfos{
   margin-top:75px;
   margin-left:100px;
@@ -63,4 +68,12 @@ ul{
 }
 .circle2Cont h3,.circle2Cont p{
   color: #268895;
+}
+.circle1Loader{
+  margin-top:250px;
+  margin-left:240px;
+}
+.circle2Loader{
+  margin-top:150px;
+  margin-left:25px;
 }

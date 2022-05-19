@@ -110,7 +110,7 @@
     <div class="d-flex flex-column aligns-items-center text-center my-4" *ngIf="!isAdmin(user)">
       <button type="button" class="btn btn-primary my-2 mx-4 mesInfosBtn" (click)="goToProfile(user)">Afficher profil</button>
       <button *ngIf="user.profileStatus" type="button" class="btn btn-secondary my-2 mx-4 monProfilBtn" (click)="suspendProfile(user)">Suspendre</button>
-      <button *ngIf="!user.profileStatus" type="button" class="btn btn-secondary my-2 mx-4 monProfilBtn" (click)="activateProfile(user)">Activer</button>
+      <button *ngIf="!user.profileStatus" type="button" class="btn btn-secondary my-2 mx-4 activateBtn" (click)="activateProfile(user)">Activer</button>
       <button type="button" class="btn btn-secondary my-2 mx-4 seDeconnecterBtn" (click)="deleteProfile(user)">Supprimer</button>
     </div>
     <div class="d-flex flex-column aligns-items-center text-center my-4" *ngIf="isAdmin(user)">

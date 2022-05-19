@@ -1,4 +1,4 @@
-<div class="containerPost row mb-3">
+<div class="containerPost row mb-3 shadow1">
   <div class="col-2 ps-4">
     <div class="my-3">
       <a href="/" class="containerPostFirstColLink">
@@ -100,15 +100,30 @@
                   </div>
                   <div class="col-12 mt-3">
                     <div class="form-floating">
-                      <textarea
+                      <!-- <textarea
                         #publicationImageUrl
                         class="form-control"
                         placeholder="Entrez votre lien photo..."
                         id="floatingTextarea"
                         style="min-height: 200px"
                         formControlName="publicationImageUrl"
-                      ></textarea>
-                      <label for="floatingTextarea">Image de publication</label>
+                      ></textarea> -->
+                      <input
+                        #publicationImageUrl
+                        type="url"
+                        name="url"
+                        id="url"
+                        placeholder="https://example.com"
+                        pattern="https://.*"
+                        size="30"
+                        required
+                        class="form-control"
+                        id="floatingUrlImgInput"
+                        formControlName="publicationImageUrl"
+                      />
+                      <label for="floatingUrlImgInput"
+                        >Url d'image de publication</label
+                      >
                     </div>
                   </div>
 

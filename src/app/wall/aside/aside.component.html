@@ -1,7 +1,7 @@
-<div class="circle1 d-flex">
+<div class="circle1 d-flex shadow1">
   <div
     *ngIf="loadingUser"
-    class="userInfos d-flex flex-column text-center align-items-center"
+    class="userInfos d-flex flex-column text-center align-items-center circle1Loader"
   >
     <span class="spinner-border spinner-border-lg" role="status"></span>
   </div>
@@ -22,10 +22,10 @@
   </div>
 </div>
 
-<div class="circle2 rounded-circle">
+<div class="circle2 rounded-circle shadow1">
   <div
     *ngIf="loadingNetwork"
-    class="circle2Cont text-center d-flex flex-column align-items-center"
+    class="circle2Cont text-center d-flex flex-column align-items-center circle2Loader"
   >
     <span class="spinner-border spinner-border-lg" role="status"></span>
   </div>
@@ -68,7 +68,7 @@
     </button>
   </div>
 </div>
-<div class="circle3 rounded-circle">
+<div class="circle3 rounded-circle shadow1">
   <div class="circle3Cont text-center d-flex flex-column align-items-center">
     <span
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ipsam,
