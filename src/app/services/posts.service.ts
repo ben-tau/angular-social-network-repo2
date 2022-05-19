@@ -31,11 +31,13 @@ export class PostsService {
   createPost(
     contenu: string,
     visibilite: boolean,
+    publicationImageUrl: string,
     utilisateurId: number
   ): Observable<Post> {
     const post = {
       contenu,
       isVisible: visibilite,
+      publicationImageUrl,
     };
     console.log('post object', post);
 

@@ -1,6 +1,9 @@
 <div class="row mb-2">
   <div class="col-12 d-flex">
-    <select class="form-select selectBtnForPosts" aria-label="Default select example">
+    <select
+      class="form-select selectBtnForPosts"
+      aria-label="Default select example"
+    >
       <option selected>Trier par...</option>
       <option value="1">One</option>
       <option value="2">Two</option>
@@ -10,95 +13,149 @@
   </div>
 </div>
 <div class="row">
-  <!-- post -->
-  <div class="col-12" *ngFor="let post of posts">
-    <div class="row postCont my-2">
-      <div class="col-2">
-        <div class="d-flex">
-          <img src="../../assets/images/justlogo.png" style="width:40px;height:40px" alt="social-network-logo" class="mt-1">
-          <h5 class="ms-3 mt-2">{{post.auteur.nomUtilisateur}}</h5>
+  <div *ngIf="loading" class="text-center">
+    <span class="spinner-border spinner-border-lg" role="status"></span>
+  </div>
+
+  <div *ngIf="!loading">
+    <!-- post -->
+    <div class="col-12" *ngFor="let post of posts">
+      <div class="row postCont my-2">
+        <div class="col-2">
+          <div class="d-flex">
+            <img
+              src="../../assets/images/justlogo.png"
+              style="width: 40px; height: 40px"
+              alt="social-network-logo"
+              class="mt-1"
+            />
+            <h5 class="ms-3 mt-2">{{ post.auteur.nomUtilisateur }}</h5>
+          </div>
         </div>
-      </div>
-      <div class="col-6"></div>
-      <div class="col-4 text-end pt-2">
-        <span class="postDatePublication">{{post.datePublication}}</span>
-      </div>
-      <a href="/" class="my-4">
-        <div class="col-12 text-center">
-          <h3>{{post.contenu}}</h3>
-          <img src="../../assets/images/img1.jpg" alt="" style="width:85%" class="my-4">
+        <div class="col-6"></div>
+        <div class="col-4 text-end pt-2">
+          <span class="postDatePublication">{{ post.datePublication }}</span>
         </div>
-      </a>
-      <div class="col-12 mt-3">
-        <ul class="sideNavBarUl d-flex justify-content-between">
-          <!-- <li>
+        <a href="/" class="my-4">
+          <div class="col-12 text-center">
+            <h3>{{ post.contenu }}</h3>
+            <img
+              [src]="post.publicationImageUrl"
+              alt=""
+              style="width: 85%"
+              class="my-4"
+              loading="lazy"
+            />
+          </div>
+        </a>
+        <div class="col-12 mt-3">
+          <ul class="sideNavBarUl d-flex justify-content-between">
+            <!-- <li>
             <a href="/">
               <img src="../../assets/images/justlogo.png" style="width:40px;height:40px" alt="social-network-logo">
               <span> J'aime</span>
             </a>
           </li> -->
-          <li>
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="giveIdForComment(post.id)" class="bottomPostLink">
-              <i class="fa fa-comments"></i>
-              <span> Commenter</span>
-            </a>
-          </li>
-          <li>
-            <a href="/" class="bottomPostLink">
-              <i class="fa fa-share-alt-square"></i>
-              <span> Partager</span>
-            </a>
-          </li>
-          <li>
-            <a href="/" class="bottomPostLink">
-              <i class="fa fa-volume-control-phone"></i>
-              <span> Contacter</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-12 mt-5">
-        <div class="row">
-          <div class="col-2">
-            <button type="button" class="btn btn-outline-primary me-1 bottomPostBtn">
-              <i class="fa fa-thumbs-up"></i>
-              <span class="thumbsCounter"></span>
-            </button>
-            <button type="button" class="btn btn-outline-primary mx-1 bottomPostBtn">
-              <i class="fa fa-heart"></i>
-              <span class="likesCounter">&nbsp;{{post.likes}}</span>
-            </button>
-            <button type="button" class="btn btn-outline-primary mx-1 bottomPostBtn">
-              <i class="fa fa-smile-o"></i>
-            </button>
-          </div>
-          <div class="col-8">
-
-          </div>
-          <div class="col-2 text-end pt-3" (click)="giveIdForComment(post.id)">
-            <a class="text-decoration-underline commentsLink" (click)="displayComments()">
-              <span *ngIf="post.commentaires.length < 1"></span>
-              <span *ngIf="post.commentaires.length == 1">{{post.commentaires.length}} commentaire</span>
-              <span *ngIf="post.commentaires.length > 1">{{post.commentaires.length}} commentaires</span>
-            </a>
-          </div>
-          <div class="col-12 mt-4 mb-2 commentsCont">
-            <app-comments *ngIf="showComments" [comments]="post.commentaires" [publicationId]="tempPublicationId"></app-comments>
+            <li>
+              <a
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal2"
+                (click)="giveIdForComment(post.id)"
+                class="bottomPostLink"
+              >
+                <i class="fa fa-comments"></i>
+                <span> Commenter</span>
+              </a>
+            </li>
+            <li>
+              <a href="/" class="bottomPostLink">
+                <i class="fa fa-share-alt-square"></i>
+                <span> Partager</span>
+              </a>
+            </li>
+            <li>
+              <a href="/" class="bottomPostLink">
+                <i class="fa fa-volume-control-phone"></i>
+                <span> Contacter</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 mt-5">
+          <div class="row">
+            <div class="col-2">
+              <button
+                type="button"
+                class="btn btn-outline-primary me-1 bottomPostBtn"
+              >
+                <i class="fa fa-thumbs-up"></i>
+                <span class="thumbsCounter"></span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary mx-1 bottomPostBtn"
+              >
+                <i class="fa fa-heart"></i>
+                <span class="likesCounter">&nbsp;{{ post.likes }}</span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary mx-1 bottomPostBtn"
+              >
+                <i class="fa fa-smile-o"></i>
+              </button>
+            </div>
+            <div class="col-8"></div>
+            <div
+              class="col-2 text-end pt-3"
+              (click)="giveIdForComment(post.id)"
+            >
+              <a
+                class="text-decoration-underline commentsLink"
+                (click)="displayComments()"
+              >
+                <span *ngIf="post.commentaires.length < 1"></span>
+                <span *ngIf="post.commentaires.length == 1"
+                  >{{ post.commentaires.length }} commentaire</span
+                >
+                <span *ngIf="post.commentaires.length > 1"
+                  >{{ post.commentaires.length }} commentaires</span
+                >
+              </a>
+            </div>
+            <div class="col-12 mt-4 mb-2 commentsCont">
+              <app-comments
+                *ngIf="showComments"
+                [comments]="post.commentaires"
+                [publicationId]="tempPublicationId"
+              ></app-comments>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- end of post -->
   </div>
-  <!-- end of post -->
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="exampleModal2"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
     <div class="form">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form action="" [formGroup]="createCommentForm">
@@ -107,11 +164,18 @@
                 <div class="col-9">
                   <div class="row">
                     <div class="col-2">
-                      <img src="../../assets/images/logo.jpg" style="width:40px;height:40px" alt="social-network-logo">
+                      <img
+                        src="../../assets/images/logo.jpg"
+                        style="width: 40px; height: 40px"
+                        alt="social-network-logo"
+                      />
                     </div>
                     <div class="col-10">
                       <h5 class="text-end">Jean Dupont</h5>
-                      <select class="form-select" aria-label="Default select example">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                      >
                         <option selected>Visibilité du commentaire</option>
                         <option value="1">Tout le monde</option>
                         <option value="2">Vos connexions seulement</option>
@@ -122,8 +186,13 @@
                 </div>
                 <div class="col-12 mt-3">
                   <div class="form-floating">
-                    <textarea class="form-control" placeholder="De quoi voulez-vous parler aujourd'hui ?"
-                      id="floatingTextarea" style="min-height:200px" formControlName="contenu"></textarea>
+                    <textarea
+                      class="form-control"
+                      placeholder="De quoi voulez-vous parler aujourd'hui ?"
+                      id="floatingTextarea"
+                      style="min-height: 200px"
+                      formControlName="contenu"
+                    ></textarea>
                     <label for="floatingTextarea">Publier</label>
                   </div>
                 </div>
@@ -154,7 +223,15 @@
                       <i class="fa fa-camera"></i>
                     </div>
                     <div class="col-4 text-end">
-                      <button #contenu class="btn btn-primary rounded" (click)="addComment()" [disabled]="!createCommentForm.valid" data-bs-dismiss="modal">Publier</button>
+                      <button
+                        #contenu
+                        class="btn btn-primary rounded"
+                        (click)="addComment()"
+                        [disabled]="!createCommentForm.valid"
+                        data-bs-dismiss="modal"
+                      >
+                        Publier
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -167,5 +244,4 @@
   </div>
 
   <!-- End Modal -->
-
 </div>

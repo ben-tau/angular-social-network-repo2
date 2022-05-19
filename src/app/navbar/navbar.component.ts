@@ -1,31 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { AuthenticationService } from '../services/authentication.service';
-import { NavigationEnd, Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { DetailsUtilisateur } from '../model/details-utilisateur';
-import { Utilisateur } from '../model/utilisateur';
-// import { UtilisateurService } from '../services/utilisateur.service';
-// import { WallPublicationsComponent } from '../mur-publications/mur-publications.component';
-import { DomSanitizer } from '@angular/platform-browser';
-=======
-
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
 @Component({
   selector: /*'app-navbar'*/ '[app-navbar]',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-<<<<<<< HEAD
 export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
-=======
-
-export class NavbarComponent implements OnInit{
-  ngOnInit(): void{
-
-  }
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
 }
 
 // export class NavbarComponent implements OnInit {

@@ -1,125 +1,156 @@
 <app-header></app-header>
-<div id="connections">
-  <div class="text-center p-5">
-    <h1 style="font-weight: bold; font-size: 30px; padding-top: 6%">
-      Demandes de connections
-    </h1>
-  </div>
-  <div *ngIf="connRequests.length == 0" class="text-center text-muted">
-    <p style="font-size: 20px">Pas de nouvelle demande de connection..</p>
-  </div>
-  <div *ngIf="connRequests.length != 0" class="container align-self-center">
-    <ul class="list-group">
-      <li
-        *ngFor="let con of connRequests"
-        class="list-group-item list-group-item-action list-group-item-light"
-      >
-        <span
-          style="font-size: large; vertical-align: middle"
-          class="align-middle"
+<main class="pt-4">
+  <div class="row">
+    <div app-navbar class="col-1 sideNavBar pt-4"></div>
+    <div class="col-11">
+      <div id="connections">
+        <div class="text-center p-5">
+          <h1 style="font-weight: bold; font-size: 30px; padding-top: 6%">
+            Demandes de connections
+          </h1>
+        </div>
+        <div
+          *ngIf="connRequests.length == 0 && !loading"
+          class="text-center text-muted"
         >
-          <!-- <a
-            [routerLink]="['/users/', con.demandeConnection.expediteur.id]"
-            style="text-decoration: none"
-            ><b>{{ con.demandeConnection.expediteur.nomUtilisateur }} </b></a
-          > -->
-          L'utilisateur
-          <a style="text-decoration: none"
-            ><b
-              >{{
-                con.demandeConnection?.utilisateurExpediteur?.nomUtilisateur
-              }}
-            </b></a
+          <p style="font-size: 20px">Pas de nouvelle demande de connection..</p>
+        </div>
+        <div *ngIf="loading" class="text-center">
+          <span class="spinner-border spinner-border-lg" role="status"></span>
+        </div>
+
+        <div *ngIf="!loading">
+          <div
+            *ngIf="connRequests.length != 0"
+            class="container align-self-center"
           >
-          veux se connecter avec vous</span
-        >
-        <!-- <span
-          type="button"
-          class="btn btn-info rounded-pill align-middle"
-          style="float: right; color: white"
-          (click)="goToProfile(con.demandeConnection?.expediteur)"
-          >Voir profile</span
-        > -->
+            <ul class="list-group">
+              <li
+                *ngFor="let con of connRequests"
+                class="list-group-item list-group-item-action list-group-item-light"
+              >
+                <span
+                  style="font-size: large; vertical-align: middle"
+                  class="align-middle"
+                >
+                  <!-- <a
+              [routerLink]="['/users/', con.demandeConnection.expediteur.id]"
+              style="text-decoration: none"
+              ><b>{{ con.demandeConnection.expediteur.nomUtilisateur }} </b></a
+            > -->
+                  L'utilisateur
+                  <a style="text-decoration: none"
+                    ><b
+                      >{{
+                        con.demandeConnection?.utilisateurExpediteur
+                          ?.nomUtilisateur
+                      }}
+                    </b></a
+                  >
+                  veux se connecter avec vous</span
+                >
+                <!-- <span
+            type="button"
+            class="btn btn-info rounded-pill align-middle"
+            style="float: right; color: white"
+            (click)="goToProfile(con.demandeConnection?.expediteur)"
+            >Voir profile</span
+          > -->
 
-        <span
-          class="btn btn-success rounded-pill align-middle"
-          style="float: right; color: white; margin-right: 4px"
-          (click)="acceptConnection(con.demandeConnection?.id)"
-          >Accepter</span
-        >
-      </li>
-    </ul>
-  </div>
-</div>
+                <span
+                  class="btn btn-success rounded-pill align-middle"
+                  style="float: right; color: white; margin-right: 4px"
+                  (click)="acceptConnection(con.demandeConnection?.id)"
+                  >Accepter</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-<div id="postNotifications" style="padding-bottom: 5%">
-  <div class="text-center p-5">
-    <h1 style="font-weight: bold; font-size: 30px">
-      Notifications concernant vos publications
-    </h1>
-  </div>
-  <div *ngIf="postNotifications.length == 0" class="text-center text-muted">
-    <p style="font-size: 20px">Pas de nouvelle concernant vos publications</p>
-  </div>
-  <div
-    *ngIf="postNotifications.length != 0"
-    class="container align-self-center"
-  >
-    <!-- <ul class="list-group">
-      <li
-        *ngFor="let n of postNotifications"
-        class="list-group-item list-group-item-action"
-      >
-        <div *ngIf="getType(n.typeNotification) == 1">
-          <span style="float: left; margin-right: 10px">
-            <i class="bi bi-chat-text"></i>
-          </span>
-          <span>
-            User
-            <b>
-              {{ n?.nouveauCommentaire?.auteur.nomUtilisateur }}
-            </b>
-            commenté:
-            <span style="font-style: italic">
-              "{{ n?.nouveauCommentaire?.contenu }}"
-            </span>
-            sur votre publication: <br />
-            <span style="font-style: italic">
-              <p style="margin-left: 5%; margin-top: 1%">
-                "{{ n.nouveauCommentaire?.post?.contenu }}"
-              </p>
-            </span>
-          </span>
+      <div id="postNotifications" style="padding-bottom: 5%">
+        <div class="text-center p-5">
+          <h1 style="font-weight: bold; font-size: 30px">
+            Notifications concernant vos publications
+          </h1>
         </div>
-      </li>
-    </ul> -->
-    <ul class="list-group">
-      <li
-        *ngFor="let n of postNotifications"
-        class="list-group-item list-group-item-action"
-      >
-        <div *ngIf="getType(n.typeNotification) == 1">
-          <span style="float: left; margin-right: 10px">
-            <i class="bi bi-chat-text"></i>
-          </span>
-          <span>
-            L'utilisateur
-            <b>
-              {{ n?.nouveauCommentaire?.auteur.nomUtilisateur }}
-            </b>
-            a commenté:
-            <span style="font-style: italic">
-              "{{ n?.nouveauCommentaire?.contenu }}"
-            </span>
-            sur votre publication: <br />
-            <span style="font-style: italic">
-              <p style="margin-left: 5%; margin-top: 1%">
-                "{{ n.nouveauCommentaire?.post?.contenu }}"
-              </p>
-            </span>
-          </span>
+        <div
+          *ngIf="postNotifications.length == 0 && !loading"
+          class="text-center text-muted"
+        >
+          <p style="font-size: 20px">
+            Pas de nouvelle concernant vos publications
+          </p>
         </div>
-      </li>
-    </ul>
+        <div *ngIf="loading" class="text-center">
+          <span class="spinner-border spinner-border-lg" role="status"></span>
+        </div>
+
+        <div *ngIf="!loading">
+          <div
+            *ngIf="postNotifications.length != 0"
+            class="container align-self-center"
+          >
+            <!-- <ul class="list-group">
+        <li
+          *ngFor="let n of postNotifications"
+          class="list-group-item list-group-item-action"
+        >
+          <div *ngIf="getType(n.typeNotification) == 1">
+            <span style="float: left; margin-right: 10px">
+              <i class="bi bi-chat-text"></i>
+            </span>
+            <span>
+              User
+              <b>
+                {{ n?.nouveauCommentaire?.auteur.nomUtilisateur }}
+              </b>
+              commenté:
+              <span style="font-style: italic">
+                "{{ n?.nouveauCommentaire?.contenu }}"
+              </span>
+              sur votre publication: <br />
+              <span style="font-style: italic">
+                <p style="margin-left: 5%; margin-top: 1%">
+                  "{{ n.nouveauCommentaire?.post?.contenu }}"
+                </p>
+              </span>
+            </span>
+          </div>
+        </li>
+      </ul> -->
+            <ul class="list-group">
+              <li
+                *ngFor="let n of postNotifications"
+                class="list-group-item list-group-item-action"
+              >
+                <div *ngIf="getType(n.typeNotification) == 1">
+                  <span style="float: left; margin-right: 10px">
+                    <i class="bi bi-chat-text"></i>
+                  </span>
+                  <span>
+                    L'utilisateur
+                    <b>
+                      {{ n?.nouveauCommentaire?.auteur.nomUtilisateur }}
+                    </b>
+                    a commenté:
+                    <span style="font-style: italic">
+                      "{{ n?.nouveauCommentaire?.contenu }}"
+                    </span>
+                    sur votre publication: <br />
+                    <span style="font-style: italic">
+                      <p style="margin-left: 5%; margin-top: 1%">
+                        "{{ n.nouveauCommentaire?.post?.contenu }}"
+                      </p>
+                    </span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</main>

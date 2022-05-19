@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
-<<<<<<< HEAD
-import { ActivatedRoute, Router } from '@angular/router';
-import { Publication } from '../model/publication';
-import { Utilisateur } from '../model/utilisateur';
-// import { UtilisateurService } from '../services/utilisateur.service';
-import { WallPostsComponent } from './posts/posts.component';
-import { DomSanitizer } from '@angular/platform-browser';
-// import { ReseauService } from '../services/reseau.service';
-import { Formatters } from '../helpers/formatters';
-=======
 import { Router } from '@angular/router';
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
 import { PostsService } from '../services/posts.service';
 
 @Component({

@@ -1,14 +1,16 @@
 <header>
-  <div class="row align-items-center justify-content-between headerRowCont ps-4">
+  <div
+    class="row align-items-center justify-content-between headerRowCont ps-4"
+  >
     <div class="col-2 d-flex justify-content-start">
-      <a href="http://localhost:4200/feed" class="d-flex">
-      <img
-        src="../../assets/images/logo.png"
-        style="width: 120px"
-        alt="social-network-logo"
-      />
-      <!-- <h1 class="ms-2">Shanet</h1> -->
-    </a>
+      <a routerLink="/feed" class="d-flex">
+        <img
+          src="../../assets/images/logo.png"
+          style="width: 120px"
+          alt="social-network-logo"
+        />
+        <!-- <h1 class="ms-2">Shanet</h1> -->
+      </a>
     </div>
     <div class="col-3 d-flex justify-content-center">
       <input
@@ -18,25 +20,6 @@
         style="width: 590px"
       />
     </div>
-<<<<<<< HEAD
-    <div class="col-4 text-end logBtnCont pe-5">
-      <button type="button" class="btn btn-primary mx-2">Mes infos</button>
-      <a routerLink="/feed" type="button" class="btn btn-secondary mx-2">
-        Mon profil
-      </a>
-      <a
-        routerLink="/notifications"
-        type="button"
-        class="btn btn-secondary mx-2"
-      >
-        Notifications
-      </a>
-      <a routerLink="/network" type="button" class="btn btn-secondary mx-2">
-        Mon Réseau
-      </a>
-
-      <button (click)="logOut()" type="button" class="btn btn-secondary mx-2">
-=======
     <div class="col-4 text-end">
       <!-- <a
         routerLink="/notifications"
@@ -48,21 +31,32 @@
       <div class="d-flex flex-column align-items-right">
         <div class="">
           <a
-      routerLink="/notifications" type="button" class="btn btn-outline rounded position-relative">
-        <div class="circle">
-          <i class="fa fa-bell"></i>
-        </div>
-        <span class="position-absolute translate-middle badge rounded-pill bg-danger redNb">
-          {{notificationsSize}}
-          <span class="visually-hidden">unread messages</span>
-        </span>
-        </a>
-        <span class="notifSpan">Notifications</span>
-        </div>
+            routerLink="/notifications"
+            type="button"
+            class="btn btn-outline rounded position-relative"
+          >
+            <div class="circle">
+              <i class="fa fa-bell"></i>
+            </div>
+            <div *ngIf="loading" class="text-center">
+              <!-- <span
+                class="spinner-border spinner-border-s"
+                role="status"
+              ></span> -->
+            </div>
 
-
+            <div *ngIf="!loading">
+              <span
+                class="position-absolute translate-middle badge rounded-pill bg-danger redNb"
+              >
+                {{ notificationsSize }}
+                <span class="visually-hidden">Messages non lu</span>
+              </span>
+            </div>
+          </a>
+          <span class="notifSpan">Notifications</span>
+        </div>
       </div>
-
     </div>
     <div class="col-2 text-end logBtnCont pe-5">
       <!-- <a type="button" class="btn btn-primary mx-2 mesInfosBtn">Mon Compte</a> -->
@@ -73,8 +67,11 @@
       <!-- <a routerLink="/network" type="button" class="btn btn-secondary mx-2 networkBtn">
         Mon Réseau
       </a> -->
-      <a (click)="logOut()" type="button" class="btn btn-secondary mx-2 seDeconnecterBtn">
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
+      <a
+        (click)="logOut()"
+        type="button"
+        class="btn btn-secondary mx-2 seDeconnecterBtn"
+      >
         Se Déconnecter
       </a>
     </div>

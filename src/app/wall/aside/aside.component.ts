@@ -11,21 +11,17 @@ export class WallAsideComponent implements OnInit {
   @Input() userDetails!: any;
   userInfos: any = [];
   networkInfos: any = [];
+  loadingNetwork: boolean = false;
+  loadingUser: boolean = false;
 
-<<<<<<< HEAD
   constructor(
     private utilisateurService: UserService,
     private connectionService: ConnectionService
   ) {}
-=======
-  @Input() userDetails!:any
-  userInfos:any = []
-  networkInfos:any = []
-
-  constructor(private utilisateurService:UserService,private connectionService :ConnectionService) { }
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
 
   ngOnInit(): void {
+    this.loadingNetwork = true;
+    this.loadingUser = true;
     this.getUser();
     this.getNetwork();
   }
@@ -43,6 +39,7 @@ export class WallAsideComponent implements OnInit {
         // end fake data
 
         this.userInfos = userInfos;
+        this.loadingUser = false;
       });
   }
   getNetwork() {
@@ -50,6 +47,7 @@ export class WallAsideComponent implements OnInit {
       .getConnections(+this.userDetails.id, this.userDetails.token)
       .subscribe((networkInfos) => {
         this.networkInfos = networkInfos;
+        this.loadingNetwork = false;
       });
   }
 }

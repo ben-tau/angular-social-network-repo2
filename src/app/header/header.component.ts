@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-=======
 import { UserDetails } from '../model/user-details';
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
 import { AuthenticationService } from '../services/authentication.service';
 import { NotificationService } from '../services/notification.service';
 
@@ -13,15 +10,9 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-<<<<<<< HEAD
-  constructor(
-    private authenticationService: AuthenticationService,
-    private router: Router
-  ) {}
-=======
-  notificationsSize! : number
+  notificationsSize!: number;
   userDetails: UserDetails | null | undefined;
->>>>>>> 93a5a910af75f073332b8498bee00c90b492c66b
+  loading!: boolean;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -30,20 +21,21 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authenticationService.getLoggedInUser().subscribe(userDetails => {
-        this.userDetails = userDetails
-      }
-    )
-    this.getNumberOfNotif()
+    this.loading = true;
+    this.authenticationService.getLoggedInUser().subscribe((userDetails) => {
+      this.userDetails = userDetails;
+    });
+    this.getNumberOfNotif();
   }
 
   logOut() {
     this.authenticationService.logout();
   }
 
-  getNumberOfNotif(){
-    this.notifServ.getNotifications(this.userDetails?.id).subscribe(items=>{
-      this.notificationsSize = items.length
-    })
+  getNumberOfNotif() {
+    this.notifServ.getNotifications(this.userDetails?.id).subscribe((items) => {
+      this.notificationsSize = items.length;
+      this.loading = false;
+    });
   }
 }

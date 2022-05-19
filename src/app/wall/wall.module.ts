@@ -42,6 +42,12 @@ import { AppRoutingModule } from '../app-routing.module';
     HttpClientModule,
     AppRoutingModule,
   ],
-  exports: [HeaderComponent, FooterComponent, NavbarComponent],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    NavbarComponent,
+    WallAsideComponent,
+    NavbarComponent,
+  ],
 })
 export class WallModule {}
