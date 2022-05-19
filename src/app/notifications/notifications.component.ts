@@ -17,6 +17,7 @@ export class NotificationsComponent implements OnInit {
   notifications: Notification[] = new Array<Notification>();
   connRequests: Notification[] = new Array<Notification>();
   postNotifications: Notification[] = new Array<Notification>();
+  loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class NotificationsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.authenticationService.getLoggedInUser().subscribe((userDetails) => {
       this.userDetails = userDetails;
     });
@@ -42,6 +44,7 @@ export class NotificationsComponent implements OnInit {
             this.postNotifications.push(notif);
           }
         });
+        this.loading = false;
       });
     console.log('Connection Notifications: ', this.connRequests);
 

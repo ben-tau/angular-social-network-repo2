@@ -29,4 +29,10 @@ a:hover{
   font-size: 150%;
 }
 
+.shadow1{
+  -moz-box-shadow: 4px 4px 10px #888;
+  -webkit-box-shadow: 4px 4px 10px #888;
+  box-shadow: 4px 4px 10px #888;
+}
+
 

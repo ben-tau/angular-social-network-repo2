@@ -9,8 +9,7 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./wall.component.scss'],
 })
 export class WallComponent implements OnInit {
-
-  userDetails!:any
+  userDetails!: any;
 
   constructor(
     private authenticationService: AuthenticationService,

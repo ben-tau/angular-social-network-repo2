@@ -27,9 +27,14 @@ export class NetworkService {
     return this.http.get<User[]>(`${this.host}/${userId?.toString()}/reseau`);
   }
 
-  hasSendRequest(mainUserId: number, otherUserId: number): Observable<boolean> {
+  hasSendRequest(
+    mainUserId: number | undefined | null,
+    otherUserId: number | undefined
+  ): Observable<any> {
     return this.http.get<any>(
-      `${this.host}/${mainUserId.toString()}/demande/${otherUserId.toString()}`
+      `${
+        this.host
+      }/${mainUserId?.toString()}/demande/${otherUserId?.toString()}`
     );
   }
 }

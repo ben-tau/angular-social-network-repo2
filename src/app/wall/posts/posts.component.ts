@@ -15,6 +15,7 @@ import { PostsService } from 'src/app/services/posts.service';
 export class WallPostsComponent implements OnInit {
   posts!: Post[];
   // comments!: Comment[];
+  loading: boolean = false;
   showComments: boolean = false;
   @Input() userDetails!: any;
   private subscriptions: Array<Subscription>;
@@ -30,6 +31,7 @@ export class WallPostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.getPosts();
     this.subscriptions.push(
       this.postsService.asObservable().subscribe(() => {
@@ -74,21 +76,25 @@ export class WallPostsComponent implements OnInit {
   // }
 
   getPosts() {
-    this.postsService.getPosts(this.userDetails.id).subscribe((posts:Post[]) => {
-      posts.sort((a, b) => {
-        if (a.datePublication < b.datePublication) return 1;
-        else if (a.datePublication > b.datePublication) return -1;
-        else return 0;
+    this.postsService
+      .getPosts(this.userDetails.id)
+      .subscribe((posts: Post[]) => {
+        posts.sort((a, b) => {
+          if (a.datePublication < b.datePublication) return 1;
+          else if (a.datePublication > b.datePublication) return -1;
+          else return 0;
+        });
+
+        posts.map((post) => {
+          let timestamp = +post.datePublication;
+
+          return Formatters.dateToString(timestamp, post, 'datePublication');
+        });
+
+        this.posts = posts;
+        console.log(this.posts);
+        this.loading = false;
       });
-
-      posts.map((post) => {
-        let timestamp = +post.datePublication;
-
-        return Formatters.dateToString(timestamp, post, 'datePublication');
-      });
-
-      this.posts = posts;
-    });
   }
 
   giveIdForComment(id: number) {

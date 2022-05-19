@@ -19,6 +19,10 @@ export class NetworkComponent implements OnInit {
   network: User[] = new Array<User>();
   appUsers: User[] = new Array<User>();
   currentUser: User = new User();
+  loadingRequest: boolean = false;
+  loadingNetwork: boolean = false;
+  loadingContacts: boolean = false;
+  loadingUser: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +34,10 @@ export class NetworkComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadingContacts = true;
+    this.loadingNetwork = true;
+    this.loadingRequest = true;
+    this.loadingUser = true;
     this.authenticationService.getLoggedInUser().subscribe((userDetails) => {
       this.userDetails = userDetails;
     });
@@ -37,6 +45,9 @@ export class NetworkComponent implements OnInit {
     this.userService.getUser(this.userDetails?.id?.toString()).subscribe({
       next: (user1: User) => {
         Object.assign(this.currentUser, user1);
+        console.log('Current User: ', this.currentUser);
+        console.log('Has sent request: ', this.hasRequestPending(1));
+        this.loadingUser = false;
       },
       error: (error: { message: any }) => {
         alert(error.message);
@@ -46,6 +57,9 @@ export class NetworkComponent implements OnInit {
     this.userService.getUsers().subscribe({
       next: (users: User[]) => {
         Object.assign(this.appUsers, users);
+        this.loadingContacts = false;
+
+        // console.log('Has sent request: ', this.hasRequestPending(1));
       },
       error: (error: { message: any }) => {
         alert(error.message);
@@ -56,35 +70,24 @@ export class NetworkComponent implements OnInit {
       .getNetwork(this.userDetails?.id)
       .subscribe((network) => {
         Object.assign(this.network, network);
+        this.loadingNetwork = false;
       });
+
+    // this.hasRequestPending1(3);
 
     this.startPage = 0;
     this.paginationLimit = 8;
 
-    this.reworkAppUsersBeforeDisplay()
-  }
-
-  reworkAppUsersBeforeDisplay(){
-    let newArr = this.appUsers.map(user=>{
-      console.log("id",this.currentUser.id);
-
-      if(user.id == this.currentUser.id){
-        console.log("ici");
-
-        return;
-      }
-      return user
-    })
-    console.log(newArr);
-
-    console.log(this.appUsers);
+    // console.log('Current User: ', this.currentUser);
   }
 
   addConnection(user: User) {
     this.networkService
       .addNewConnection(this.userDetails?.id, user?.id)
       .subscribe({
-        next: (responce) => {},
+        next: (responce) => {
+          this.reloadCurrentRoute();
+        },
         error: (error) => {
           alert(error.message);
         },
@@ -96,7 +99,7 @@ export class NetworkComponent implements OnInit {
         Object.assign(this.network, network);
       });
 
-    this.reloadCurrentRoute();
+    // this.reloadCurrentRoute();
   }
 
   reloadCurrentRoute() {
@@ -118,6 +121,25 @@ export class NetworkComponent implements OnInit {
     }
     return false;
   }
+
+  // hasRequestPending(otherId: number | undefined) {
+  //   let isPending!: boolean;
+  //   this.networkService
+  //     .hasSendRequest(this.userDetails?.id, otherId)
+  //     .subscribe({
+  //       next: (responce) => {
+  //         console.log('hasRequestPending -> ', responce);
+
+  //         // this.hasSentRequest = responce;
+  //         isPending = responce.message;
+  //         console.log('hasRequestPending -> ', isPending);
+
+  //         // this.loadingRequest = false;
+  //       },
+  //       error: (err) => console.log(err),
+  //     });
+  //   return isPending;
+  // }
 
   hasRequestPending(id: number | undefined): boolean {
     let flag = false;

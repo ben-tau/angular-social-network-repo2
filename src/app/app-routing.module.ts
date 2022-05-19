@@ -24,9 +24,12 @@ const routes: Routes = [
     component: WallComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'notifications', component: NotificationsComponent },
-  { path: 'network', component: NetworkComponent },
-
+  {
+    path: 'notifications',
+    component: NotificationsComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'network', component: NetworkComponent, canActivate: [AuthGuard] },
   {
     path: 'admin',
     component: AdminComponent,
