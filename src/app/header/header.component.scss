@@ -46,21 +46,31 @@ button{
 //   margin-top:8px;
 // }
 .fa-bell{
-  font-size:165%;
-  margin-top: 9px;
-  color:white;
+  font-size:225%;
+  margin-top: 11px;
+  color:#F9D959;
 }
 .circle{
-  height:45px;
-  width: 45px;
+  height:62px;
+  width: 62px;
   border-radius: 50%;
   background-color:lightblue
 }
 .redNb{
   font-size:111%;
-  left:55px;
+  top:5px;
+  left:68px;
 }
 .notifSpan{
   font-size: 150%;
   color:#9c9c9c;
+}
+.headerSearchInput{
+  font-size:150%;
+}
+.fa-sign-out{
+  font-size:150%;
+}
+.disconnText{
+  font-family: 'Lato', sans-serif;
 }

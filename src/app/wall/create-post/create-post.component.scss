@@ -15,9 +15,11 @@ a:hover {
 }
 .makePostInput {
   cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size:150%;
 }
 .makePostInput:hover {
-  border: 1px solid #73c8d5;
+  border: 4px solid #73c8d5;
 }
 .containerPostFirstColLink {
   color: #616161;
@@ -28,9 +30,12 @@ a:hover {
 .containerPostFirstColSpan {
   font-size: 150%;
 }
-
+.form-control[readonly]{
+  background-color: white;
+}
 .shadow1 {
   -moz-box-shadow: 4px 4px 10px #888;
   -webkit-box-shadow: 4px 4px 10px #888;
   box-shadow: 4px 4px 10px #888;
 }
+

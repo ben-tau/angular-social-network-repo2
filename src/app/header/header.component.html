@@ -15,7 +15,7 @@
     <div class="col-3 d-flex justify-content-center">
       <input
         type="text"
-        class="form-control"
+        class="form-control headerSearchInput"
         placeholder="Rechercher..."
         style="width: 590px"
       />
@@ -35,7 +35,7 @@
             type="button"
             class="btn btn-outline rounded position-relative"
           >
-            <div class="circle">
+            <div class="circle border border-warning">
               <i class="fa fa-bell"></i>
             </div>
             <div *ngIf="loading" class="text-center">
@@ -72,7 +72,8 @@
         type="button"
         class="btn btn-secondary mx-2 seDeconnecterBtn"
       >
-        Se Déconnecter
+      <i class="fa fa-sign-out"><span class="disconnText">&nbsp;Se&nbsp;Déconnecter</span></i>
+
       </a>
     </div>
   </div>

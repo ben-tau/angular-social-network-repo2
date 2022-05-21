@@ -44,6 +44,9 @@ export class WallPostsComponent implements OnInit {
         this.getPosts();
       })
     );
+
+    console.log(this.currentUser);
+
   }
 
   ngOnDestroy() {
@@ -98,32 +101,22 @@ export class WallPostsComponent implements OnInit {
         });
 
         this.posts = posts;
-        console.log(this.posts);
         this.loading = false;
       });
   }
 
   giveIdForComment(id: number) {
     this.tempPublicationId = id;
-    console.log('idforcomment', this.tempPublicationId);
   }
 
   addComment() {
     const controls = this.createCommentForm.controls;
-
-    console.log(controls);
-
-    console.log('addComment step1');
-
-    console.log('contenu ' + controls.contenu.value);
 
     let obj = {
       contenu: controls.contenu?.value,
       utilisateurId: this.userDetails.id,
       publicationId: this.tempPublicationId,
     };
-
-    console.log(obj);
 
     this.commentsService.createComment(obj).subscribe((data) => {
       this.postsService.asObservable().next(data);

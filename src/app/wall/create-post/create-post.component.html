@@ -28,11 +28,12 @@
           >
           <input
             type="text"
-            class="form-control makePostInput"
+            class="form-control makePostInput shadow1"
             placeholder="Faire une publication"
             style="width: 75%"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            readonly
           />
         </div>
       </form>
@@ -66,6 +67,7 @@
                       [src]="currentUser?.photoProfilUrl"
                       style="width: 70px; height: 70px"
                       alt="social-network-logo"
+                      class="rounded-circle border border-danger"
                     />
                   </div>
                   <div class="col-10">

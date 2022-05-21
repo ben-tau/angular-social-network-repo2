@@ -44,19 +44,145 @@ $front-end-theme: mat.define-light-theme(
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 
 
-html,
-body {
-  background-color: rgb(240, 240, 240);
+#body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   width:100%;
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
+  // background: url('assets/images/justlogo.png') 1000% center center repeat
+  //rgb(240, 240, 240);
 }
 
 .shadow1{
   -moz-box-shadow: 4px 4px 10px #888;
   -webkit-box-shadow: 4px 4px 10px #888;
   box-shadow: 4px 4px 10px #888;
+}
+
+.bgCont{
+
+}
+///////////////////
+.bgImg1,.bgImg2,.bgImg3,.bgImg4,.bgImg5,.bgImg6,.bgImg7,.bgImg8,.bgImg9
+,.bgImg10,.bgImg11,.bgImg12,.bgImg13,.bgImg14,.bgImg15,.bgImg16,.bgImg17,
+.bgImg18,.bgImg19,.bgImg20{
+  filter: opacity(0.2);
+  position: fixed;
+  z-index:-9999;
+  animation: rotation 400s linear infinite ;
+}
+.bgImg2{
+  left:500px;
+}
+.bgImg3{
+  left:1000px;
+}
+.bgImg4{
+  left:1500px;
+}
+.bgImg5{
+  left:2000px;
+}
+//////////////////////////
+.bgImg6{
+  top:500px;
+}
+.bgImg7{
+  top:500px;
+  left:500px;
+}
+.bgImg8{
+  top:500px;
+  left:1000px;
+}
+.bgImg9{
+  top:500px;
+  left:1500px;
+}
+.bgImg10{
+  top:500px;
+  left:2000px;
+}
+////////////////////////
+.bgImg11{
+  top:1000px;
+}
+.bgImg12{
+  top:1000px;
+  left:500px;
+}
+.bgImg13{
+  top:1000px;
+  left:1000px;
+}
+.bgImg14{
+  top:1000px;
+  left:1500px;
+}
+.bgImg15{
+  top:1000px;
+  left:2000px;
+}
+/////////////////////
+// .bgImg16{
+//   top:500px;
+//   left:500px;
+// }
+// .bgImg17{
+//   top:500px;
+//   left:500px;
+// }
+// .bgImg18{
+//   top:500px;
+//   left:500px;
+// }
+// .bgImg19{
+//   top:500px;
+//   left:500px;
+// }
+// .bgImg20{
+//   top:500px;
+//   left:500px;
+// }
+
+.button{
+  width: 170px;
+  height: 45px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+  background-color: #e7c850;
+  // border: 1px solid rgb(0, 0, 0);
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.button:hover {
+  background-color: #99cb6a;
+  box-shadow: 0px 15px 20px #4e828a;
+  color: black;
+  transform: translateY(-7px);
+}
+
+@keyframes rotation{
+  0%{
+    transform: rotate(0deg);
+  }
+  25%{
+    transform: rotate(90deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  75%{
+    transform: rotate(270deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
 }
 

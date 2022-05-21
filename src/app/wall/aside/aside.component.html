@@ -34,19 +34,28 @@
     class="circle2Cont text-center d-flex flex-column align-items-center"
   >
     <h3>Mon réseau</h3>
-    <p>
+    <div class="d-flex">
+      <span class="fs-5">
       Nombre de connexions :
-      <span class="bold">{{ networkInfos.length }}</span>
-    </p>
+
+      </span>
+      <span
+      class="translate-middle badge rounded-pill redNb text-dark"
+    >
+      {{ networkInfos.length }}
+      </span>
+    </div>
+
     <ul class="d-flex mt-3 sideNavBarUl">
       <li
         class="d-flex flex-column align-items-center mx-2"
         *ngFor="let networkFriend of networkInfos.slice(0, 3)"
       >
         <img
-          src="../../assets/images/justlogo.png"
+          [src]="networkFriend.photoProfilUrl"
           style="width: 40px; height: 40px"
           alt="social-network-logo"
+          class="rounded-circle"
         />
         <span>{{ networkFriend.nomUtilisateur }}</span>
       </li>
@@ -63,7 +72,7 @@
                   <span>Nom Prénom</span>
               </li> -->
     </ul>
-    <a routerLink="/network" type="button" class="btn btn-primary mx-2 mesInfosBtn">
+    <a routerLink="/network" type="button" class="mx-2 button asideSeeAllNetworkBtn shadow1">
       Voir tout mon réseau
     </a>
   </div>

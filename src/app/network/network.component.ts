@@ -155,20 +155,31 @@ export class NetworkComponent implements OnInit {
     return flag;
   }
 
+  hasRequestAccepted(user:any): any{
+    let flag = false;
+
+    user.destinataires.forEach((con: any) => {
+      if (con.isAccepted) flag = true;
+    })
+    user.expediteurs.forEach((con: any) => {
+      if (con.isAccepted) flag = true;
+    })
+
+    return flag;
+  }
+
   showMoreItems() {
     this.paginationLimit = Number(this.paginationLimit) + 4;
   }
 
   reworkAppUsersBeforeDisplay(){
     let newArr = this.appUsers.filter((user)=>{
-      if(user.id !== this.currentUser.id){
+      if(user.id !== this.currentUser.id && !this.hasRequestAccepted(user)){
         return user
       }else{
         return;
       }
     })
-    console.log(newArr);
-
     this.appUsers = newArr;
   }
 }

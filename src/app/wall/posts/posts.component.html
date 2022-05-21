@@ -21,8 +21,8 @@
         <div class="col-2">
           <div class="d-flex">
             <img [src]="post.auteur.photoProfilUrl" style="width: 40px; height: 40px" alt="social-network-logo"
-              class="mt-1" />
-            <h5 class="ms-3 mt-2">{{ post.auteur.nombuttonUtilisateur }}</h5>
+              class="mt-1 border border-danger rounded-circle">
+            <h5 class="ms-3 paddingForUserPost">{{ post.auteur.nomUtilisateur }}</h5>
           </div>
         </div>
         <div class="col-6"></div>
@@ -34,7 +34,7 @@
             <p *ngIf="post.contenu.length<270">{{ post.contenu }}</p>
             <p *ngIf="post.contenu.length>=270 && !allTextIsDisplayed">
               {{ post.contenu.substr(0,270)+"...  " }}
-              <button class="button" (click)="displayAllContent()">
+              <button class="button text-14" (click)="displayAllContent()">
                 Afficher plus
               </button>
             </p>
@@ -130,8 +130,8 @@
             <form action="" [formGroup]="createCommentForm">
               <div class="row">
                 <div class="col-3">
-                  <img src="../../assets/images/logo.jpg" style="width: 40px; height: 40px"
-                        alt="social-network-logo" />
+                  <img [src]="currentUser.photoProfilUrl" style="width: 60px; height: 60px"
+                        alt="social-network-logo" class="rounded-circle border border-danger"/>
                 </div>
                 <div class="col-9">
                   <div class="row">
@@ -182,6 +182,8 @@
 
   <!-- End Modal -->
 </div>
+
+
 
 
 

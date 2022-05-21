@@ -58,27 +58,6 @@ a{
   width:8rem;
   height:8rem;
 }
-.button{
-  width: 170px;
-  height: 45px;
-  font-size: 11px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #000;
-  background-color: #e7c850;
-  // border: 1px solid rgb(0, 0, 0);
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-.button:hover {
-  background-color: #99cb6a;
-  box-shadow: 0px 15px 20px #4e828a;
-  color: black;
-  transform: translateY(-7px);
-}
 .fa-camera:hover{
   color:rgb(65, 65, 65)
 }
@@ -90,6 +69,12 @@ a{
   background-color: white;
   border-radius: 10px;
   padding: 25px 30px 15px 30px;
+}
+.text-14{
+  font-size: 14px;
+}
+.paddingForUserPost{
+  padding-top:10px;
 }
 
 
