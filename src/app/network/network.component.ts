@@ -79,19 +79,6 @@ export class NetworkComponent implements OnInit {
     // console.log('Current User: ', this.currentUser);
   }
 
-  reworkAppUsersBeforeDisplay(){
-    let newArr = this.appUsers.filter((user)=>{
-      if(user.id !== this.currentUser.id){
-        return user
-      }else{
-        return;
-      }
-    })
-    console.log(newArr);
-
-    this.appUsers = newArr;
-  }
-
   addConnection(user: User) {
     this.networkService
       .addNewConnection(this.userDetails?.id, user?.id)
