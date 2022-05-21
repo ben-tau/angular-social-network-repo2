@@ -45,8 +45,6 @@ export class NetworkComponent implements OnInit {
     this.userService.getUser(this.userDetails?.id?.toString()).subscribe({
       next: (user1: User) => {
         Object.assign(this.currentUser, user1);
-        console.log('Current User: ', this.currentUser);
-        console.log('Has sent request: ', this.hasRequestPending(1));
         this.loadingUser = false;
       },
       error: (error: { message: any }) => {
@@ -79,6 +77,19 @@ export class NetworkComponent implements OnInit {
     this.paginationLimit = 8;
 
     // console.log('Current User: ', this.currentUser);
+  }
+
+  reworkAppUsersBeforeDisplay(){
+    let newArr = this.appUsers.filter((user)=>{
+      if(user.id !== this.currentUser.id){
+        return user
+      }else{
+        return;
+      }
+    })
+    console.log(newArr);
+
+    this.appUsers = newArr;
   }
 
   addConnection(user: User) {
