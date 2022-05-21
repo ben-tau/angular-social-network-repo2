@@ -158,4 +158,17 @@ export class NetworkComponent implements OnInit {
   showMoreItems() {
     this.paginationLimit = Number(this.paginationLimit) + 4;
   }
+
+  reworkAppUsersBeforeDisplay(){
+    let newArr = this.appUsers.filter((user)=>{
+      if(user.id !== this.currentUser.id){
+        return user
+      }else{
+        return;
+      }
+    })
+    console.log(newArr);
+
+    this.appUsers = newArr;
+  }
 }

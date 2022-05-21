@@ -37,14 +37,14 @@
               <p class="m-0">{{ user.email }}</p>
             </div> -->
 
-            <!-- <div *ngIf="user.currentJob">
+<!-- <div *ngIf="user.currentJob">
                           <ul class="list-group list-group-flush">
                               <li class="list-group-item">
                                   {{user.currentJob}} at {{user.currentCompany}}
                               </li>
                           </ul>
                       </div> -->
-            <!-- <hr style="margin-top: 30px" />
+<!-- <hr style="margin-top: 30px" />
             <div *ngIf="!isAdmin(user)" class="card-body" style="align-items: center">
               <div class="btn-group btn-group-sm p-1">
                 <button (click)="goToProfile(user)" type="button" class="btn btn-primary m-1" disabled>
@@ -89,15 +89,33 @@
   </div>
 </div> -->
 
-<div *ngIf="users?.length" class="text-white row d-flex justify-content-center my-5" id="adminMembers">
-  <div *ngFor="let user of users | slice: startPage:paginationLimit" class="col-2 card text-dark mx-3 my-3"
-    style="min-width: 18rem; max-width: 25rem;">
+<div
+  *ngIf="users?.length"
+  class="text-white row d-flex justify-content-center my-5"
+  id="adminMembers"
+>
+  <div
+    *ngFor="let user of users | slice: startPage:paginationLimit"
+    class="col-2 card text-dark mx-3 my-3"
+    style="min-width: 18rem; max-width: 25rem"
+  >
     <div class="card-header row text-center">
-      <div *ngIf="user.profilPhoto" class="col-3 mt-2"><img style="width: 100%;" class="card-img-top" [src]="displayProfilePhoto(user)"
-          alt="profile image"></div>
-      <div *ngIf="!user.profilPhoto" class="col-3">
-        <img src="../../assets/images/user-profile-icon.jpg" class="rounded-circle"
-          style="margin-left: 25px; width: 60px" alt="" loading="lazy" />
+      <div *ngIf="user.photoProfilUrl" class="col-3 mt-2">
+        <img
+          style="width: 100%"
+          class="card-img-top"
+          [src]="user.photoProfilUrl"
+          alt="profile image"
+        />
+      </div>
+      <div *ngIf="!user.photoProfilUrl" class="col-3">
+        <img
+          src="../../assets/images/user-profile-icon.jpg"
+          class="rounded-circle"
+          style="margin-left: 25px; width: 60px"
+          alt=""
+          loading="lazy"
+        />
       </div>
       <div class="col-9">
         <h4>{{ user.nomUtilisateur }}</h4>
@@ -107,15 +125,52 @@
     <!-- <div class="card-body row" id="AdminMemberCardBody">
       <hr>
     </div> -->
-    <div class="d-flex flex-column aligns-items-center text-center my-4" *ngIf="!isAdmin(user)">
-      <button type="button" class="btn btn-primary my-2 mx-4 mesInfosBtn" (click)="goToProfile(user)">Afficher profil</button>
-      <button *ngIf="user.profileStatus" type="button" class="btn btn-secondary my-2 mx-4 monProfilBtn" (click)="suspendProfile(user)">Suspendre</button>
-      <button *ngIf="!user.profileStatus" type="button" class="btn btn-secondary my-2 mx-4 activateBtn" (click)="activateProfile(user)">Activer</button>
-      <button type="button" class="btn btn-secondary my-2 mx-4 seDeconnecterBtn" (click)="deleteProfile(user)">Supprimer</button>
+    <div
+      class="d-flex flex-column aligns-items-center text-center my-4"
+      *ngIf="!isAdmin(user)"
+    >
+      <button
+        type="button"
+        class="btn btn-primary my-2 mx-4 mesInfosBtn"
+        (click)="goToProfile(user)"
+      >
+        Afficher profil
+      </button>
+      <button
+        *ngIf="user.profileStatus"
+        type="button"
+        class="btn btn-secondary my-2 mx-4 monProfilBtn"
+        (click)="suspendProfile(user)"
+      >
+        Suspendre
+      </button>
+      <button
+        *ngIf="!user.profileStatus"
+        type="button"
+        class="btn btn-secondary my-2 mx-4 activateBtn"
+        (click)="activateProfile(user)"
+      >
+        Activer
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary my-2 mx-4 seDeconnecterBtn"
+        (click)="deleteProfile(user)"
+      >
+        Supprimer
+      </button>
     </div>
-    <div class="d-flex flex-column aligns-items-center text-center my-4" *ngIf="isAdmin(user)">
-      <button type="button" class="btn btn-primary my-2 mx-4 mesInfosBtn" (click)="goToProfile(user)">Afficher profil</button>
+    <div
+      class="d-flex flex-column aligns-items-center text-center my-4"
+      *ngIf="isAdmin(user)"
+    >
+      <button
+        type="button"
+        class="btn btn-primary my-2 mx-4 mesInfosBtn"
+        (click)="goToProfile(user)"
+      >
+        Afficher profil
+      </button>
     </div>
   </div>
-
 </div>

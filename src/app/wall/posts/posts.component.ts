@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommentsService } from 'src/app/services/comments.service';
 import { PostsService } from 'src/app/services/posts.service';
+import { UserService } from 'src/app/services/utilisateur.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-wall-posts',
@@ -18,6 +20,9 @@ export class WallPostsComponent implements OnInit {
   loading: boolean = false;
   showComments: boolean = false;
   @Input() userDetails!: any;
+  @Input() currentUser!: User;
+  allTextIsDisplayed:boolean = false;
+
   private subscriptions: Array<Subscription>;
   tempPublicationId!: number;
 
@@ -25,6 +30,7 @@ export class WallPostsComponent implements OnInit {
     private route: ActivatedRoute,
     private postsService: PostsService,
     private commentsService: CommentsService,
+    private userService: UserService,
     private fb: FormBuilder
   ) {
     this.subscriptions = [];
@@ -124,5 +130,9 @@ export class WallPostsComponent implements OnInit {
     });
 
     this.displayComments();
+  }
+
+  displayAllContent(){
+    this.allTextIsDisplayed = !this.allTextIsDisplayed
   }
 }

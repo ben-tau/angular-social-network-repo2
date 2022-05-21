@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/model/user';
 import { PostsService } from 'src/app/services/posts.service';
+import { UserService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-create-post',
@@ -9,8 +11,12 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class WallCreatePostComponent implements OnInit {
   @Input() userDetails!: any;
-
-  constructor(private postsService: PostsService, private fb: FormBuilder) {}
+  @Input() currentUser!: User;
+  constructor(
+    private postsService: PostsService,
+    private fb: FormBuilder,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {}
 

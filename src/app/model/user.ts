@@ -7,7 +7,7 @@ export class User {
   email: string | undefined;
   motDePasse: string | undefined;
   motDePasseConf: string | undefined;
-  profilPhoto: string | undefined;
+  photoProfilUrl: string | undefined;
   profileStatus: boolean | undefined;
   currentJob: string | undefined;
   roles: Array<Role> = new Array<Role>();

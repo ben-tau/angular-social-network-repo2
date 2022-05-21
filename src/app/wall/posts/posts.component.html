@@ -1,9 +1,6 @@
 <div class="row mb-2">
   <div class="col-12 d-flex">
-    <select
-      class="form-select selectBtnForPosts"
-      aria-label="Default select example"
-    >
+    <select class="form-select selectBtnForPosts" aria-label="Default select example">
       <option selected>Trier par...</option>
       <option value="1">One</option>
       <option value="2">Two</option>
@@ -14,52 +11,43 @@
 </div>
 <div class="row">
   <div *ngIf="loading" class="text-center">
-<<<<<<< HEAD
-    <span class="spinner-border spinner-border-lg" role="status"></span>
-=======
     <span class="spinner-border spinner-border-lg postsLoader" role="status"></span>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
   </div>
 
   <div *ngIf="!loading">
     <!-- post -->
-<<<<<<< HEAD
-    <div class="col-12" *ngFor="let post of posts">
-=======
     <div class="col-12 mainPostCont my-4 shadow1" *ngFor="let post of posts">
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
       <div class="row postCont my-2">
         <div class="col-2">
           <div class="d-flex">
-            <img
-              src="../../assets/images/justlogo.png"
-              style="width: 40px; height: 40px"
-              alt="social-network-logo"
-              class="mt-1"
-            />
-            <h5 class="ms-3 mt-2">{{ post.auteur.nomUtilisateur }}</h5>
+            <img [src]="post.auteur.photoProfilUrl" style="width: 40px; height: 40px" alt="social-network-logo"
+              class="mt-1" />
+            <h5 class="ms-3 mt-2">{{ post.auteur.nombuttonUtilisateur }}</h5>
           </div>
         </div>
         <div class="col-6"></div>
         <div class="col-4 text-end pt-2">
           <span class="postDatePublication">{{ post.datePublication }}</span>
         </div>
-        <a href="/" class="my-4">
-          <div class="col-12 text-center">
-            <h3>{{ post.contenu }}</h3>
-            <img
-              [src]="post.publicationImageUrl"
-              alt=""
-<<<<<<< HEAD
-              style="width: 85%"
-=======
-              style="max-height: 725px;max-width: 100%;border-radius: 10px;"
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
-              class="my-4"
-              loading="lazy"
-            />
+        <div class="my-4">
+          <div class="col-12 postContentCont shadow1">
+            <p *ngIf="post.contenu.length<270">{{ post.contenu }}</p>
+            <p *ngIf="post.contenu.length>=270 && !allTextIsDisplayed">
+              {{ post.contenu.substr(0,270)+"...  " }}
+              <button class="button" (click)="displayAllContent()">
+                Afficher plus
+              </button>
+            </p>
+            <p *ngIf="post.contenu.length>=270 && allTextIsDisplayed">
+              {{ post.contenu }}
+            </p>
           </div>
-        </a>
+          <div class="imgContainer text-center">
+              <img [src]="post.publicationImageUrl" alt="" style="max-height: 725px;max-width: 100%;border-radius: 10px;"
+              class="my-4" loading="lazy" />
+          </div>
+
+        </div>
         <div class="col-12 mt-3">
           <ul class="sideNavBarUl d-flex justify-content-between">
             <!-- <li>
@@ -69,118 +57,58 @@
             </a>
           </li> -->
             <li>
-              <a
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal2"
-                (click)="giveIdForComment(post.id)"
-                class="bottomPostLink"
-              >
-<<<<<<< HEAD
-                <i class="fa fa-comments"></i>
-                <span> Commenter</span>
-=======
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="giveIdForComment(post.id)"
+                class="bottomPostLink">
                 <div class="button text-center pt-2">
                   <i class="fa fa-comments"></i>
                   <span>&nbsp;Commenter</span>
                 </div>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               </a>
             </li>
             <li>
               <a href="/" class="bottomPostLink">
-<<<<<<< HEAD
-                <i class="fa fa-share-alt-square"></i>
-                <span> Partager</span>
-=======
                 <div class="button text-center pt-2">
                   <i class="fa fa-share-alt-square"></i>
                   <span>&nbsp;Partager</span>
                 </div>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               </a>
             </li>
             <li>
               <a href="/" class="bottomPostLink">
-<<<<<<< HEAD
-                <i class="fa fa-volume-control-phone"></i>
-                <span> Contacter</span>
-=======
                 <div class="button text-center pt-2">
                   <i class="fa fa-envelope"></i>
                   <span>&nbsp;Contacter</span>
                 </div>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
               </a>
             </li>
           </ul>
         </div>
         <div class="col-12 mt-5">
           <div class="row">
-<<<<<<< HEAD
-            <div class="col-2">
-=======
             <div class="col-4">
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
-              <button
-                type="button"
-                class="btn btn-outline-primary me-1 bottomPostBtn"
-              >
-<<<<<<< HEAD
-                <i class="fa fa-thumbs-up"></i>
-=======
+              <button type="button" class="btn btn-outline-primary me-1 bottomPostBtn">
                 <i class="fa fa-thumbs-up">&nbsp;55</i>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
                 <span class="thumbsCounter"></span>
               </button>
-              <button
-                type="button"
-                class="btn btn-outline-primary mx-1 bottomPostBtn"
-              >
-<<<<<<< HEAD
-                <i class="fa fa-heart"></i>
-=======
+              <button type="button" class="btn btn-outline-primary mx-1 bottomPostBtn">
                 <i class="fa fa-heart">&nbsp;32</i>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
                 <span class="likesCounter">&nbsp;{{ post.likes }}</span>
               </button>
-              <button
-                type="button"
-                class="btn btn-outline-primary mx-1 bottomPostBtn"
-              >
-<<<<<<< HEAD
-                <i class="fa fa-smile-o"></i>
-              </button>
-            </div>
-            <div class="col-8"></div>
-=======
+              <button type="button" class="btn btn-outline-primary mx-1 bottomPostBtn">
                 <i class="fa fa-smile-o">&nbsp;14</i>
               </button>
             </div>
             <div class="col-6"></div>
->>>>>>> 739ec3e3ae7dbe77a5f0090526aecaabf8f3b488
-            <div
-              class="col-2 text-end pt-3"
-              (click)="giveIdForComment(post.id)"
-            >
-              <a
-                class="text-decoration-underline commentsLink"
-                (click)="displayComments()"
-              >
+            <div class="col-2 text-end pt-3" (click)="giveIdForComment(post.id)">
+              <a class="text-decoration-underline commentsLink" (click)="displayComments()">
                 <span *ngIf="post.commentaires.length < 1"></span>
-                <span *ngIf="post.commentaires.length == 1"
-                  >{{ post.commentaires.length }} commentaire</span
-                >
-                <span *ngIf="post.commentaires.length > 1"
-                  >{{ post.commentaires.length }} commentaires</span
-                >
+                <span *ngIf="post.commentaires.length == 1">{{ post.commentaires.length }} commentaire</span>
+                <span *ngIf="post.commentaires.length > 1">{{ post.commentaires.length }} commentaires</span>
               </a>
             </div>
             <div class="col-12 mt-4 mb-2 commentsCont">
-              <app-comments
-                *ngIf="showComments"
-                [comments]="post.commentaires"
-                [publicationId]="tempPublicationId"
-              ></app-comments>
+              <app-comments *ngIf="showComments" [comments]="post.commentaires" [publicationId]="tempPublicationId">
+              </app-comments>
             </div>
           </div>
         </div>
@@ -190,44 +118,29 @@
   </div>
 
   <!-- Modal -->
-  <div
-    class="modal fade"
-    id="exampleModal2"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="form">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h5 class="modal-title" id="exampleModalLabel">Poster un commentaire</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form action="" [formGroup]="createCommentForm">
               <div class="row">
-                <div class="col-3"></div>
+                <div class="col-3">
+                  <img src="../../assets/images/logo.jpg" style="width: 40px; height: 40px"
+                        alt="social-network-logo" />
+                </div>
                 <div class="col-9">
                   <div class="row">
-                    <div class="col-2">
-                      <img
-                        src="../../assets/images/logo.jpg"
-                        style="width: 40px; height: 40px"
-                        alt="social-network-logo"
-                      />
+                    <div class="col-2 ">
+
                     </div>
                     <div class="col-10">
-                      <h5 class="text-end">Jean Dupont</h5>
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                      >
+                      <h5 class="text-end">{{currentUser.nomUtilisateur}}</h5>
+                      <select class="form-select" aria-label="Default select example">
                         <option selected>Visibilité du commentaire</option>
                         <option value="1">Tout le monde</option>
                         <option value="2">Vos connexions seulement</option>
@@ -238,50 +151,22 @@
                 </div>
                 <div class="col-12 mt-3">
                   <div class="form-floating">
-                    <textarea
-                      class="form-control"
-                      placeholder="De quoi voulez-vous parler aujourd'hui ?"
-                      id="floatingTextarea"
-                      style="min-height: 200px"
-                      formControlName="contenu"
-                    ></textarea>
+                    <textarea class="form-control" placeholder="De quoi voulez-vous parler aujourd'hui ?"
+                      id="floatingTextarea" style="min-height: 200px" formControlName="contenu"></textarea>
                     <label for="floatingTextarea">Publier</label>
                   </div>
                 </div>
                 <div class="col-12 mt-3">
                   <div class="row">
-                    <div class="col-1">
+                    <a href="" class="col-1">
                       <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-1">
+                    </a>
+                    <a href="" class="col-1">
                       <i class="fa fa-film"></i>
-                    </div>
-                    <div class="col-1">
-                      <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-1">
-                      <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-1">
-                      <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-1">
-                      <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-1">
-                      <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-1">
-                      <i class="fa fa-camera"></i>
-                    </div>
-                    <div class="col-4 text-end">
-                      <button
-                        #contenu
-                        class="btn btn-primary rounded"
-                        (click)="addComment()"
-                        [disabled]="!createCommentForm.valid"
-                        data-bs-dismiss="modal"
-                      >
+                    </a>
+                    <div class="col-10 text-end">
+                      <button #contenu class="btn btn-primary rounded" (click)="addComment()"
+                        [disabled]="!createCommentForm.valid" data-bs-dismiss="modal">
                         Publier
                       </button>
                     </div>
@@ -297,3 +182,6 @@
 
   <!-- End Modal -->
 </div>
+
+
+

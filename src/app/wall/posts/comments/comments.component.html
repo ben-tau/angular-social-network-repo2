@@ -1,18 +1,22 @@
 <!-- comment -->
 <div class="container" *ngFor="let comment of comments">
-  <div class="row my-2" >
+  <div class="row my-2">
     <div class="col-1">
-      <img src="../../assets/images/logo.jpg" style="width:40px;height:40px;border-radius:50%"
-        alt="social-network-logo">
+      <img
+        [src]="comment.auteur?.photoProfilUrl"
+        style="width: 40px; height: 40px; border-radius: 50%"
+        alt="social-network-logo"
+      />
     </div>
     <div class="col-11">
-
       <div class="row">
-        <span class="col-6">{{comment.auteur.nomUtilisateur}} - Sans emploi actuellement</span>
-        <span class="col-6 text-end">{{comment.datePublication}}</span>
+        <span class="col-6"
+          >{{ comment.auteur.nomUtilisateur }} - Sans emploi actuellement</span
+        >
+        <span class="col-6 text-end">{{ comment.datePublication }}</span>
       </div>
       <div class="commentCont my-3 fst-italic fs-4">
-        " {{comment.contenu}} "
+        " {{ comment.contenu }} "
       </div>
     </div>
   </div>
@@ -30,7 +34,7 @@
     </a> -->
     </div>
   </div>
-  <hr>
+  <hr />
 </div>
 
 <!-- end comment -->

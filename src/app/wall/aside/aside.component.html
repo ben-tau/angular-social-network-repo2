@@ -10,7 +10,7 @@
     class="userInfos d-flex flex-column text-center align-items-center"
   >
     <img
-      src="../../assets/images/justlogo.png"
+    [src]="userInfos?.photoProfilUrl"
       style="width: 70px; height: 70px; border-radius: 50%"
       alt="social-network-logo"
     />
@@ -63,9 +63,9 @@
                   <span>Nom Prénom</span>
               </li> -->
     </ul>
-    <button type="button" class="btn btn-primary mx-2 mesInfosBtn">
+    <a routerLink="/network" type="button" class="btn btn-primary mx-2 mesInfosBtn">
       Voir tout mon réseau
-    </button>
+    </a>
   </div>
 </div>
 <div class="circle3 rounded-circle shadow1">

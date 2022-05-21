@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { PostsService } from '../services/posts.service';
+import { UserService } from '../services/utilisateur.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-wall',
@@ -10,11 +12,13 @@ import { PostsService } from '../services/posts.service';
 })
 export class WallComponent implements OnInit {
   userDetails!: any;
+  currentUser!: User;
 
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +28,15 @@ export class WallComponent implements OnInit {
       }
     });
     this.getStorage();
+    this.userService.getUser(this.userDetails.id).subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        console.log(user);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   getStorage() {
